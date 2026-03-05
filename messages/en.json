@@ -1,8 +1,15 @@
 {
+    "Logo":{
+    "logo": "OmanRoute"
+
+    },
     "NavbarLinks": {
         "home": "Home",
-        "Categories": "Categories",
+        "categories": "Categories",
         "destinations": "Destinations"
         
+    },
+    "PlanTrip": {
+        "planTrip": "Plan Trip"
     }
 }

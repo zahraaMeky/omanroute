@@ -1,8 +1,15 @@
 {
+    "Logo":
+    {
+        "logo": "عمان روت"
+    },
     "NavbarLinks": {
         "home": "الرئيسية",
-        "Categories": "الفئات",
+        "categories": "الفئات",
         "destinations": "الوجهات"
         
+    },
+    "PlanTrip": {
+        "planTrip": "خطط لرحلتك"
     }
 }
