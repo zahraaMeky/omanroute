@@ -1,8 +1,8 @@
 {
     "NavbarLinks": {
         "home": "الرئيسية",
-        "destinations": "الوجهات",
-        "plan your trip": "خطط لرحلتك"
+        "Categories": "الفئات",
+        "destinations": "الوجهات"
         
     }
 }

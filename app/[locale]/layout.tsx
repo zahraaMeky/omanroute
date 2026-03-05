@@ -4,7 +4,8 @@ import { NextIntlClientProvider } from 'next-intl';
 import { routing } from '../../i18n/routing';
 
 import { Inter, Noto_Kufi_Arabic } from 'next/font/google';
-import "./globals.css";
+import "../globals.css";
+import Navbar from "@/components/Navbar";
 
 const inter = Inter({
   subsets: ['latin'],
@@ -40,6 +41,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
     <html lang={locale} dir={dir}>
       <body className={fontClass}>
         <NextIntlClientProvider locale={locale} messages={messages}>
+          <Navbar/>
           {children}
         </NextIntlClientProvider>
       </body>
