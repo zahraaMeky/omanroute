@@ -42,7 +42,9 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
       <body className={fontClass}>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Navbar/>
-          {children}
+          <main className="w-full">
+            {children}
+          </main> 
         </NextIntlClientProvider>
       </body>
     </html>

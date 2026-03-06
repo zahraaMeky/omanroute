@@ -11,5 +11,19 @@
     },
     "PlanTrip": {
         "planTrip": "Plan Trip"
-    }
+    },
+    "Carousel": {
+    "button": "Explore Destination",
+    "slides": [
+      {
+        "title": "Oman Beach",
+        "description": "Discover the pristine shores of Oman's beautiful coastline."
+      },
+      {
+        "title": "Oman Desert",
+        "description": "Experience the golden silence of the Arabian desert."
+      }
+    ]
+  }
+
 }
