@@ -24,6 +24,19 @@
         "description": "Experience the golden silence of the Arabian desert."
       }
     ]
+  },
+  "AboutOmanRoute": {
+    "title": "Discover Oman.",
+    "subtitle": "Plan Smarter.",
+    "description": "Explore mountains, beaches, deserts, and cultural destinations across Oman with an intelligent bilingual travel planner."
+  },
+  "Statistics": {
+   "items": [
+    { "count": "50+", "label": "Destinations" },
+    { "count": "100+", "label": "Routes" },
+    { "count": "10+", "label": "Rating" }
+  ]
+ 
   }
 
 }
