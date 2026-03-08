@@ -1,15 +1,18 @@
 export interface SlideItem {
     id:number;
+    key: string;
     image: string;
 }
 export const carouselItems: SlideItem[] = [
     {
         id: 1,
-        image: "/images/omanbeach.jpg",
+        key: "beach",
+        image: "/images/omanbeach.png",
     },
     {
         id: 2,
-        image: "/images/omandesert.jpg",
+        key: "desert",
+        image: "/images/omandesert.png",
     },
    
     

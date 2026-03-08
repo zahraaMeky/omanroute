@@ -16,21 +16,21 @@ export function CarouselDemo() {
   <div className="relative w-full px-16"> 
   <Carousel className="w-full" opts={{ loop: true }}>
     <CarouselContent>
-      {carouselItems.map((item, index) => (
+      {carouselItems.map((item) => (
         <CarouselItem key={item.id}>
           <div className="relative h-[400px] w-full overflow-hidden">
             <img
               src={item.image}
-              alt={t(`slides.${index}.title`)}
+              alt={t(`slides.${item.key}.title`)}
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
             <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 gap-3">
               <h3 className="text-white text-4xl font-bold drop-shadow-lg">
-                {t(`slides.${index}.title`)} {/* Use translation keys like title1, title2, etc. */}
+                {t(`slides.${item.key}.title`)} {/* Use translation keys like title1, title2, etc. */}
               </h3>
               <p className="text-white/80 text-base max-w-md drop-shadow">
-                {t(`slides.${index}.description`)}
+                {t(`slides.${item.key}.description`)}
               </p>
               <Link
                 href="/plan-trip"

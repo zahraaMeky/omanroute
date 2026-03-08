@@ -1,29 +1,27 @@
 {
-    "Logo":{
+  "Logo": {
     "logo": "OmanRoute"
-
-    },
-    "NavbarLinks": {
-        "home": "Home",
-        "categories": "Categories",
-        "destinations": "Destinations"
-        
-    },
-    "PlanTrip": {
-        "planTrip": "Plan Trip"
-    },
-    "Carousel": {
+  },
+  "NavbarLinks": {
+    "home": "Home",
+    "categories": "Categories",
+    "destinations": "Destinations"
+  },
+  "PlanTrip": {
+    "planTrip": "Plan Trip"
+  },
+  "Carousel": {
     "button": "Explore Destination",
-    "slides": [
-      {
-        "title": "Oman Beach",
+    "slides": {
+      "beach": {
+        "title": "Discover Oman Beach",
         "description": "Discover the pristine shores of Oman's beautiful coastline."
       },
-      {
-        "title": "Oman Desert",
+      "desert": {
+        "title": "Discover Oman Desert",
         "description": "Experience the golden silence of the Arabian desert."
       }
-    ]
+    }
   },
   "AboutOmanRoute": {
     "title": "Discover Oman.",
@@ -31,12 +29,20 @@
     "description": "Explore mountains, beaches, deserts, and cultural destinations across Oman with an intelligent bilingual travel planner."
   },
   "Statistics": {
-   "items": [
-    { "count": "50+", "label": "Destinations" },
-    { "count": "100+", "label": "Routes" },
-    { "count": "10+", "label": "Rating" }
-  ]
- 
+    "items": {
+      "destinations": { "count": "50+", "label": "Destinations" },
+      "routes": { "count": "100+", "label": "Routes" },
+      "rating": { "count": "10+", "label": "Rating" }
+    }
+  },
+  "Category": {
+    "title": "Explore by Category",
+    "description": "Oman offers diverse landscapes and rich cultural heritage waiting to be discovered.",
+    "items": {
+      "mountain": "Mountain",
+      "desert": "Desert",
+      "beach": "Beach",
+      "culture": "Culture"
+    }
   }
-
 }

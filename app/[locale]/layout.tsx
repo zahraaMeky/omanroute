@@ -6,6 +6,7 @@ import { routing } from '../../i18n/routing';
 import { Inter, Noto_Kufi_Arabic } from 'next/font/google';
 import "../globals.css";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const inter = Inter({
   subsets: ['latin'],
@@ -45,6 +46,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
           <main className="w-full">
             {children}
           </main> 
+          <Footer/>
         </NextIntlClientProvider>
       </body>
     </html>
