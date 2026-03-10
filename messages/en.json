@@ -44,5 +44,21 @@
       "beach": "Beach",
       "culture": "Culture"
     }
+  },
+  "Footer":{
+    "title":"OmanRoute",
+    "description":"Your gateway to discovering Oman's most breathtaking destinations and hidden gems.",
+    "titleLinks":"Quick Links",
+    "titleNewsletter":"Newsletter",
+    "newsletterPlaceholder":"Enter your email",
+    "newsletterButton":"Subscribe",
+    "copyright": "All rights reserved."
+  },
+  "CTA": {
+    "title": "Plan Your Perfect",
+    "highlight": "Trip to Oman",
+    "description": "Breathtaking beaches, majestic mountains, and endless desert landscapes await. Build your personalized itinerary and start your adventure today.",
+    "planbutton": "Plan your trip",
+    "distinationbutton": "Explore Destinations"
   }
 }

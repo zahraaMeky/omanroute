@@ -1,5 +1,5 @@
 "use client"
-import { useTranslations } from "next-intl"
+import { useTranslations, useLocale } from "next-intl"
 import {carouselItems} from "@/data"
 import {
   Carousel,
@@ -9,12 +9,17 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel"
 import Link from "next/link"
+import { Compass } from "lucide-react"
 
 export function CarouselDemo() {
+  const locale = useLocale();
   const t = useTranslations("Carousel")
   return (
   <div className="relative w-full px-16"> 
-  <Carousel className="w-full" opts={{ loop: true }}>
+  <Carousel className="w-full" opts={{
+    loop: true,
+    direction: locale === "ar" ? "rtl" : "ltr", 
+  }}>
     <CarouselContent>
       {carouselItems.map((item) => (
         <CarouselItem key={item.id}>
@@ -34,8 +39,9 @@ export function CarouselDemo() {
               </p>
               <Link
                 href="/plan-trip"
-                className="mt-2 px-6 py-2 bg-[#FFC857] text-black font-semibold rounded-full hover:bg-[#b8965e] transition"
+                className="flex  gap-2 items-centermt-2 px-6 py-2 bg-[#FFC857] text-black font-semibold rounded-full hover:bg-[#b8965e] transition"
               >
+                <Compass className="w-5 h-5" />
                   {t(`button`)}
               </Link>
             </div>
