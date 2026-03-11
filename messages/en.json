@@ -60,5 +60,9 @@
     "description": "Breathtaking beaches, majestic mountains, and endless desert landscapes await. Build your personalized itinerary and start your adventure today.",
     "planbutton": "Plan your trip",
     "distinationbutton": "Explore Destinations"
+  },
+  "FeaturedDestinations": {
+    "title": "Featured Destinations",
+    "description": "Discover the most breathtaking destinations in Oman, from pristine beaches to mountains and vibrant culture."
   }
 }

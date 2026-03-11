@@ -1,3 +1,4 @@
+"use client"
 import Link from "next/link"
 import { useTranslations} from "next-intl"
 import { Compass, MapPin, Map, Plane, Star } from "lucide-react"
