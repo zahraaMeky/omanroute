@@ -4,10 +4,9 @@ interface Props {
   dest: (typeof destinations)[0]
 }
 
-export function FeaturedDestinationsCard({ dest }: Props) {
+export function DestinationsCard({ dest }: Props) {
   return (
-    <div className="group relative overflow-hidden rounded-2xl cursor-pointer mt-10"
-      style={{ background: "var(--bg-primary)" }}>
+    <div className="group relative overflow-hidden rounded-2xl cursor-pointer mt-10 bg-(--bg-primary) shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out">
 
       <div className="relative h-56 overflow-hidden">
         <img
@@ -17,14 +16,16 @@ export function FeaturedDestinationsCard({ dest }: Props) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
 
-        <div className="absolute top-3 left-3">
-          <span
-            className="text-xs font-semibold px-3 py-1 rounded-full"
-            style={{ background: "#FFC857", color: "#1C1C1E" }}
-          >
-            ★ Featured
-          </span>
-        </div>
+       {dest.featured && (
+          <div className="absolute top-3 left-3">
+            <span
+              className="text-xs font-semibold px-3 py-1 rounded-full"
+              style={{ background: "#FFC857", color: "#1C1C1E" }}
+            >
+              ★ Featured
+            </span>
+          </div>
+        )}
 
         <div className="absolute bottom-3 left-3 right-3">
           <p className="text-white/80 text-xs font-medium uppercase tracking-widest">

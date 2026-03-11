@@ -1,7 +1,7 @@
 "use client"
 import { useTranslations } from "next-intl"
 import { destinations } from "@/data"
-import { FeaturedDestinationsCard } from "./FeaturedDestinationsCard"
+import { DestinationsCard } from "./DestinationsCard"
 
 const FAMOUS_IDS = ["dest_0006", "dest_0038", "dest_0005", "dest_0051"];
 
@@ -30,7 +30,7 @@ const FeaturedDestinations = () => {
       {/* Destination cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {featuredDestinations.map((dest) => (
-          <FeaturedDestinationsCard key={dest.id} dest={dest} />
+          <DestinationsCard key={dest.id} dest={dest} />
         ))}
       </div>
     </div>
