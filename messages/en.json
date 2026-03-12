@@ -64,5 +64,21 @@
   "FeaturedDestinations": {
     "title": "Featured Destinations",
     "description": "Discover the most breathtaking destinations in Oman, from pristine beaches to mountains and vibrant culture."
-  }
+  },
+  "DestinationsCard": {
+  "featured": "★ Featured",
+  "explore": "Explore Destination",
+  "free": "Free",
+  "visit": "h visit",
+  "omr": "OMR"
+  },
+
+"DestinationCategory": {
+  "mountain": "mountain",
+  "desert": "desert",
+  "beach": "beach",
+  "culture": "culture",
+  "nature": "nature",
+  "food": "food"
+}
 }

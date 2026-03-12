@@ -67,5 +67,20 @@
   "FeaturedDestinations": {
     "title": "الوجهات المميزة",
     "description": "اكتشف أجمل الوجهات في عُمان، من الشواطئ الخلابة إلى الجبال الشامخة والثقافة النابضة بالحياة."
+},
+"DestinationsCard": {
+  "featured": "★ مميز",
+  "explore": "استكشف الوجهة",
+  "free": "مجاني",
+  "visit": "س زيارة",
+  "omr": "ريال عماني"
+},
+"DestinationCategory": {
+  "mountain": "جبل",
+  "desert": "صحراء",
+  "beach": "شاطئ",
+  "culture": "ثقافة",
+  "nature": "طبيعة",
+  "food": "طعام"
 }
 }
