@@ -16,7 +16,7 @@ export function DestinationsCard({ dest }: Props) {
 
 
   return (
-    <div className="group relative overflow-hidden rounded-2xl cursor-pointer mt-10 bg-(--bg-primary) shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out">
+    <div className="group relative overflow-hidden rounded-2xl cursor-pointer mt-5 bg-(--bg-primary) shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out">
 
       <div className="relative h-56 overflow-hidden">
         <img
@@ -45,7 +45,7 @@ export function DestinationsCard({ dest }: Props) {
 
       <div className="p-4 flex flex-col gap-3">
         <h3
-          className="text-lg font-bold leading-snug text-(--text-heading)"
+          className="text-base font-bold leading-snug text-(--text-heading)"
          
         >
           {isAr ? dest.name.ar : dest.name.en}

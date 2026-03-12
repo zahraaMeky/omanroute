@@ -80,5 +80,13 @@
   "culture": "culture",
   "nature": "nature",
   "food": "food"
+},
+"DestinationsPage": {
+  "title": "Explore All Destinations",
+  "description": "Discover the most breathtaking destinations across Oman"
+},
+"Pagination": {
+  "previous": "Previous",
+  "next": "Next"
 }
 }

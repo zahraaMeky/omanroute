@@ -1,4 +1,5 @@
 "use client"
+import { useTranslations } from "next-intl"
 import {
   Pagination,
   PaginationContent,
@@ -20,6 +21,8 @@ export function AppPagination({
   totalPages,
   onPageChange,
 }: AppPaginationProps) {
+  const t = useTranslations("Pagination")
+
   const getPages = () => {
     const pages: (number | "ellipsis")[] = []
 
@@ -57,7 +60,9 @@ export function AppPagination({
                 ? "pointer-events-none opacity-50"
                 : "cursor-pointer"
             }
-          />
+          >
+            {t("previous")}
+          </PaginationPrevious>
         </PaginationItem>
 
         {getPages().map((page, i) =>
@@ -94,7 +99,9 @@ export function AppPagination({
                 ? "pointer-events-none opacity-50"
                 : "cursor-pointer"
             }
-          />
+          >
+            {t("next")}
+          </PaginationNext>
         </PaginationItem>
       </PaginationContent>
     </Pagination>

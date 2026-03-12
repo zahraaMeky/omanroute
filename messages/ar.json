@@ -82,5 +82,13 @@
   "culture": "ثقافة",
   "nature": "طبيعة",
   "food": "طعام"
+},
+"DestinationsPage": {
+  "title": "استكشف جميع الوجهات",
+  "description": "اكتشف أجمل الوجهات في جميع أنحاء عُمان"
+},
+"Pagination": {
+  "previous": "السابق",
+  "next": "التالي"
 }
 }
