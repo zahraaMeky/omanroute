@@ -1,7 +1,7 @@
 "use client"
 import { useLocale, useTranslations } from "next-intl"
 import { destinations } from "@/data"
-import Link from "next/link"
+import { Link } from "@/i18n/navigation"
 import { Compass,Clock,Ticket,Banknote} from "lucide-react"
 
 interface Props {
