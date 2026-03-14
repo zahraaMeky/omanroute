@@ -6,5 +6,5 @@ export type { StatisticItem } from "./statistics";
 export{ categoryItems } from "./category";
 export type { CategoryItem } from "./category";
 export {destinations} from "./destinations";
-export type { Destination } from "./destinations";
+export type { Destination,Category  } from "./destinations";
     

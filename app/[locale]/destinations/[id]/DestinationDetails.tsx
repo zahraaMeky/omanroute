@@ -21,7 +21,7 @@ export default function DestinationDetails({ id }: Props) {
   const region = isAr ? dest.region.ar : dest.region.en
 
   return (
-    <div>
+    <div className="wrapper">
       <div className="relative w-full h-72 md:h-96 overflow-hidden">
         <Image
           src={dest.image_url}

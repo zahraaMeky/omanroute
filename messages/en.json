@@ -88,5 +88,29 @@
 "Pagination": {
   "previous": "Previous",
   "next": "Next"
+},
+"Filters": {
+  "allCategories": "All Categories",
+  "allRegions": "All Regions",
+  "allSeasons": "All Seasons",
+  "reset": "Reset",
+  "sortBy": "Sort By",
+  "default": "Default",
+  "leastCrowded": "Least Crowded",
+  "mostPopular": "Most Popular",
+  "lowestCost": "Lowest Cost",
+  "highestCost": "Highest Cost",
+  "january": "January",
+  "february": "February",
+  "march": "March",
+  "april": "April",
+  "may": "May",
+  "june": "June",
+  "july": "July",
+  "august": "August",
+  "september": "September",
+  "october": "October",
+  "november": "November",
+  "december": "December"
 }
 }

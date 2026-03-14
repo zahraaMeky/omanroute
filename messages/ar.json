@@ -90,5 +90,29 @@
 "Pagination": {
   "previous": "السابق",
   "next": "التالي"
+},
+"Filters": {
+  "allCategories": "كل الفئات",
+  "allRegions": "كل المناطق",
+  "allSeasons": "كل المواسم",
+  "reset": "إعادة تعيين",
+  "sortBy": "ترتيب حسب",
+  "default": "افتراضي",
+  "leastCrowded": "الأقل ازدحاماً",
+  "mostPopular": "الأكثر شعبية",
+  "lowestCost": "الأقل تكلفة",
+  "highestCost": "الأعلى تكلفة",
+  "january": "يناير",
+  "february": "فبراير",
+  "march": "مارس",
+  "april": "أبريل",
+  "may": "مايو",
+  "june": "يونيو",
+  "july": "يوليو",
+  "august": "أغسطس",
+  "september": "سبتمبر",
+  "october": "أكتوبر",
+  "november": "نوفمبر",
+  "december": "ديسمبر"
 }
 }

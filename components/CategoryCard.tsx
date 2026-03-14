@@ -1,15 +1,23 @@
 "use client";
 import { useTranslations } from "next-intl";
+import { useRouter } from "@/i18n/navigation";
 import { CategoryItem } from "@/data";
 
 interface CategoryCardProps {
   item: CategoryItem;
 }
+
 const CategoryCard = ({ item }: CategoryCardProps) => {
-    const t = useTranslations();
-    const Icon = item.icon;
+  const t = useTranslations();
+  const Icon = item.icon;
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push(`/destinations?category=${item.key}`)
+  }
+
   return (
-    <div className="flex flex-col items-center gap-3 cursor-pointer group">
+    <div onClick={handleClick} className="flex flex-col items-center gap-3 cursor-pointer group">
       <div
         className="relative h-24 w-24 md:h-28 md:w-28 overflow-hidden rounded-full
                 transition-all duration-300 ease-in-out
