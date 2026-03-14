@@ -2,18 +2,18 @@
 import { useLocale, useTranslations } from "next-intl"
 import { destinations } from "@/data"
 import { Link } from "@/i18n/navigation"
-import { Compass,Clock,Ticket,Banknote} from "lucide-react"
-
+import { Compass, Clock, Banknote, Bookmark } from "lucide-react"
+import { useSavedDestinations } from "@/lib/store/useSavedDestinations"
 interface Props {
   dest: (typeof destinations)[0]
 }
 
 export function DestinationsCard({ dest }: Props) {
   const locale = useLocale()
-    const isAr = locale === "ar"
-    const t = useTranslations("DestinationsCard")
-    const c = useTranslations("DestinationCategory")
-
+  const isAr = locale === "ar"
+  const t = useTranslations("DestinationsCard")
+  const c = useTranslations("DestinationCategory")
+  const { isSaved, toggleDestination } = useSavedDestinations()
 
   return (
     <div className="group relative overflow-hidden rounded-2xl cursor-pointer mt-5 bg-(--bg-primary) shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out">
@@ -28,13 +28,29 @@ export function DestinationsCard({ dest }: Props) {
 
         {dest.featured && (
           <div className="absolute top-3 left-3">
-            <span
-              className="bg-(--color-primary) text-(--color-heading) text-xs font-semibold px-3 py-1 rounded-full"
-              >
+            <span className="bg-(--color-primary) text-(--color-heading) text-xs font-semibold px-3 py-1 rounded-full">
               {t("featured")}
             </span>
           </div>
         )}
+
+        {/* Save button */}
+        <button
+          onClick={(e) => {
+            e.preventDefault()
+            toggleDestination(dest.id)
+          }}
+          className="absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110"
+          style={{
+            background: isSaved(dest.id) ? "#FFC857" : "rgba(0,0,0,0.4)",
+          }}
+        >
+          <Bookmark
+            className="w-4 h-4"
+            style={{ color: isSaved(dest.id) ? "#1C1C1E" : "white" }}
+            fill={isSaved(dest.id) ? "#1C1C1E" : "none"}
+          />
+        </button>
 
         <div className="absolute bottom-3 left-3 right-3">
           <p className="text-white/80 text-xs font-medium uppercase tracking-widest">
@@ -44,10 +60,7 @@ export function DestinationsCard({ dest }: Props) {
       </div>
 
       <div className="p-4 flex flex-col gap-3">
-        <h3
-          className="text-base font-bold leading-snug text-(--text-heading)"
-         
-        >
+        <h3 className="text-base font-bold leading-snug text-(--text-heading)">
           {isAr ? dest.name.ar : dest.name.en}
         </h3>
 
@@ -57,7 +70,7 @@ export function DestinationsCard({ dest }: Props) {
             {dest.avg_visit_duration_minutes / 60}{t("visit")}
           </span>
           <span className="flex items-center gap-1">
-            <Banknote  className="w-4 h-4" />
+            <Banknote className="w-4 h-4" />
             {dest.ticket_cost_omr === 0 ? t("free") : `${dest.ticket_cost_omr} ${t("omr")}`}
           </span>
         </div>
@@ -74,15 +87,12 @@ export function DestinationsCard({ dest }: Props) {
 
         <Link href={`/destinations/${dest.id}`}
           className="flex justify-center items-center gap-2 bg-(--color-primary) text-(--color-heading) w-full mt-1 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 hover:opacity-90 active:scale-95">
-            <Compass className="w-5 h-5" />
+          <Compass className="w-5 h-5" />
           {t("explore")}
         </Link>
       </div>
 
-      <div
-        className="bg-(--color-secondary) absolute left-0 top-0 w-1 h-0 group-hover:h-full transition-all duration-300 rounded-l-2xl"
-       
-      />
+      <div className="bg-(--color-secondary) absolute left-0 top-0 w-1 h-0 group-hover:h-full transition-all duration-300 rounded-l-2xl" />
     </div>
   )
 }

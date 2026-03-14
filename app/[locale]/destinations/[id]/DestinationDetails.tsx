@@ -2,8 +2,9 @@
 import { destinations } from "@/data"
 import { notFound } from "next/navigation"
 import Image from "next/image"
-import { Clock, Banknote, MapPin, Users } from "lucide-react"
+import { Clock, Banknote, MapPin, Users, Bookmark } from "lucide-react"
 import { useTranslations, useLocale } from "next-intl"
+import { useSavedDestinations } from "@/lib/store/useSavedDestinations"
 
 interface Props {
   id: string
@@ -13,6 +14,7 @@ export default function DestinationDetails({ id }: Props) {
   const locale = useLocale()
   const isAr = locale === "ar"
   const tc = useTranslations("DestinationCategory")
+  const { isSaved, toggleDestination } = useSavedDestinations()
 
   const dest = destinations.find(d => d.id === id)
   if (!dest) notFound()
@@ -36,6 +38,21 @@ export default function DestinationDetails({ id }: Props) {
           </p>
           <h1 className="text-4xl font-bold text-white">{name}</h1>
         </div>
+
+        {/* Save button */}
+        <button
+          onClick={() => toggleDestination(dest.id)}
+          className="absolute top-6 right-6 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110"
+          style={{
+            background: isSaved(dest.id) ? "#FFC857" : "rgba(0,0,0,0.4)",
+          }}
+        >
+          <Bookmark
+            className="w-5 h-5"
+            style={{ color: isSaved(dest.id) ? "#1C1C1E" : "white" }}
+            fill={isSaved(dest.id) ? "#1C1C1E" : "none"}
+          />
+        </button>
       </div>
 
       <div className="wrapper py-12">
