@@ -1,6 +1,6 @@
 import { Destination } from "@/data"
 import { TripInputs, DayPlan, DayStop, RegionAllocation } from "./types"
-import { scoreAndSort } from "./scorer"
+import { scoreAndSort, jaccardSimilarity, normalize } from "./scorer"
 import { distanceKm, totalKm } from "./distance"
 import { twoOpt } from "./optimizer"
 
@@ -28,6 +28,7 @@ function buildDayPlan(
   const maxStops = MAX_STOPS[inputs.intensity]
   const available = regionDestinations.filter(d => !usedIds.has(d.id))
   const sorted = scoreAndSort(available, inputs, [])
+  const maxCost = Math.max(...regionDestinations.map(d => d.ticket_cost_omr), 1)
 
   const selectedStops: Destination[] = []
   let totalMinutes = 0
@@ -72,10 +73,10 @@ function buildDayPlan(
       departureTime: departure,
       distanceFromPrev: Math.round(distFromPrev),
       scoreComponents: {
-        interest: 0,
+        interest: parseFloat(jaccardSimilarity(inputs.categories, dest.categories).toFixed(2)),
         season: dest.recommended_months.includes(inputs.month) ? 1 : 0,
-        crowd: dest.crowd_level / 5,
-        cost: dest.ticket_cost_omr,
+        crowd: parseFloat(normalize(dest.crowd_level, 1, 5).toFixed(2)),
+        cost: parseFloat(normalize(dest.ticket_cost_omr, 0, maxCost).toFixed(2)),
       },
     }
   })

@@ -7,9 +7,6 @@
     "categories": "Categories",
     "destinations": "Destinations"
   },
-  "PlanTrip": {
-    "planTrip": "Plan Trip"
-  },
   "Carousel": {
     "button": "Explore Destination",
     "slides": {
@@ -45,13 +42,13 @@
       "culture": "Culture"
     }
   },
-  "Footer":{
-    "title":"OmanRoute",
-    "description":"Your gateway to discovering Oman's most breathtaking destinations and hidden gems.",
-    "titleLinks":"Quick Links",
-    "titleNewsletter":"Newsletter",
-    "newsletterPlaceholder":"Enter your email",
-    "newsletterButton":"Subscribe",
+  "Footer": {
+    "title": "OmanRoute",
+    "description": "Your gateway to discovering Oman's most breathtaking destinations and hidden gems.",
+    "titleLinks": "Quick Links",
+    "titleNewsletter": "Newsletter",
+    "newsletterPlaceholder": "Enter your email",
+    "newsletterButton": "Subscribe",
     "copyright": "All rights reserved."
   },
   "CTA": {
@@ -66,51 +63,93 @@
     "description": "Discover the most breathtaking destinations in Oman, from pristine beaches to mountains and vibrant culture."
   },
   "DestinationsCard": {
-  "featured": "★ Featured",
-  "explore": "Explore Destination",
-  "free": "Free",
-  "visit": "h visit",
-  "omr": "OMR"
+    "featured": "★ Featured",
+    "explore": "Explore Destination",
+    "free": "Free",
+    "visit": "h visit",
+    "omr": "OMR"
   },
-
-"DestinationCategory": {
-  "mountain": "mountain",
-  "desert": "desert",
-  "beach": "beach",
-  "culture": "culture",
-  "nature": "nature",
-  "food": "food"
-},
-"DestinationsPage": {
-  "title": "Explore All Destinations",
-  "description": "Discover the most breathtaking destinations across Oman"
-},
-"Pagination": {
-  "previous": "Previous",
-  "next": "Next"
-},
-"Filters": {
-  "allCategories": "All Categories",
-  "allRegions": "All Regions",
-  "allSeasons": "All Seasons",
-  "reset": "Reset",
-  "sortBy": "Sort By",
-  "default": "Default",
-  "leastCrowded": "Least Crowded",
-  "mostPopular": "Most Popular",
-  "lowestCost": "Lowest Cost",
-  "highestCost": "Highest Cost",
-  "january": "January",
-  "february": "February",
-  "march": "March",
-  "april": "April",
-  "may": "May",
-  "june": "June",
-  "july": "July",
-  "august": "August",
-  "september": "September",
-  "october": "October",
-  "november": "November",
-  "december": "December"
-}
+  "DestinationCategory": {
+    "mountain": "Mountain",
+    "desert": "Desert",
+    "beach": "Beach",
+    "culture": "Culture",
+    "nature": "Nature",
+    "food": "Food"
+  },
+  "DestinationsPage": {
+    "title": "Explore All Destinations",
+    "description": "Discover the most breathtaking destinations across Oman"
+  },
+  "Pagination": {
+    "previous": "Previous",
+    "next": "Next"
+  },
+  "Filters": {
+    "allCategories": "All Categories",
+    "allRegions": "All Regions",
+    "allSeasons": "All Seasons",
+    "reset": "Reset",
+    "sortBy": "Sort By",
+    "default": "Default",
+    "leastCrowded": "Least Crowded",
+    "mostPopular": "Most Popular",
+    "lowestCost": "Lowest Cost",
+    "highestCost": "Highest Cost",
+    "january": "January",
+    "february": "February",
+    "march": "March",
+    "april": "April",
+    "may": "May",
+    "june": "June",
+    "july": "July",
+    "august": "August",
+    "september": "September",
+    "october": "October",
+    "november": "November",
+    "december": "December"
+  },
+  "PlanTrip": {
+    "planTrip": "Plan Trip",
+    "title": "Plan Your Trip",
+    "description": "Tell us about your trip and we'll build the perfect plan",
+    "savedNotice": "Loaded from your saved interests:",
+    "noSavedNotice": "No saved destinations yet. You can manually select categories below.",
+    "duration": "Trip Duration",
+    "budget": "Budget",
+    "budgetLow": "Low",
+    "budgetMedium": "Medium",
+    "budgetLuxury": "Luxury",
+    "month": "Travel Month",
+    "intensity": "Travel Intensity",
+    "intensityRelaxed": "Relaxed",
+    "intensityBalanced": "Balanced",
+    "intensityPacked": "Packed",
+    "categories": "Preferred Categories",
+    "generate": "Generate Trip Plan",
+    "reset": "Reset Plan",
+    "planReady": "Your Trip Plan is Ready!",
+    "totalDistance": "Total Distance:",
+    "totalCost": "Total Cost:"
+  },
+  "TripPlan": {
+    "regionAllocation": "Region Allocation",
+    "day": "day",
+    "days": "days",
+    "dayTitle": "Day",
+    "costBreakdown": "Cost Breakdown",
+    "fuel": "Fuel",
+    "tickets": "Tickets",
+    "food": "Food",
+    "hotel": "Hotel",
+    "total": "Total",
+    "totalDistance": "Total Distance",
+    "free": "Free",
+    "omr": "OMR",
+    "reasonInterest": "Matches your interests",
+    "reasonSeason": "Great for this month",
+    "reasonCrowd": "Less crowded",
+    "reasonCost": "Budget friendly",
+    "planReady": "Your Trip Plan is Ready!"
+  }
 }

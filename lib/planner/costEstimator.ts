@@ -1,12 +1,16 @@
 import { TripInputs, DayPlan, CostBreakdown } from "./types"
 
+// hotel cost per night based on budget tier as specified in challenge requirements
 const HOTEL_COST: Record<string, number> = {
   low: 20,
   medium: 45,
   luxury: 90,
 }
 
-const FUEL_PRICE = 0.18
+// current Oman fuel price per liter (2026)
+const FUEL_PRICE = 0.24
+
+// food cost per day as specified in challenge requirements
 const FOOD_PER_DAY = 6
 
 export function estimateCost(

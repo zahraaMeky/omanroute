@@ -2,7 +2,6 @@ import { Destination } from "@/data"
 import { TripInputs } from "./types"
 import { detourKm } from "./distance"
 
-// how important each factor is in the final score
 const WEIGHTS = {
   interest:  0.30,
   season:    0.25,
@@ -11,25 +10,27 @@ const WEIGHTS = {
   detour:    0.05,
   diversity: 0.05,
 }
+
 // checks if destination categories match user preferences
-function jaccardSimilarity(userCats: string[], destCats: string[]): number {
+export function jaccardSimilarity(userCats: string[], destCats: string[]): number {
   if (userCats.length === 0) return 0.5
   const intersection = destCats.filter(c => userCats.includes(c)).length
   const union = new Set([...userCats, ...destCats]).size
   return intersection / union
 }
-    // is this month good for this destination
+
+// is this month good for this destination
 function seasonFit(month: number, recommendedMonths: number[]): number {
   return recommendedMonths.includes(month) ? 1 : 0
 }
 
 // converts numbers to 0-1 scale for fair comparison
-function normalize(value: number, min: number, max: number): number {
+export function normalize(value: number, min: number, max: number): number {
   if (max === min) return 0
   return (value - min) / (max - min)
 }
 
-    // rewards destinations that add new categories
+// rewards destinations that add new categories
 function diversityGain(dest: Destination, selected: Destination[]): number {
   const existingCats = new Set(selected.flatMap(d => d.categories))
   const newCats = dest.categories.filter(c => !existingCats.has(c))

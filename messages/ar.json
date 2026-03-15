@@ -1,29 +1,24 @@
 {
-    "Logo":
-    {
-        "logo": "عمان روت"
-    },
-    "NavbarLinks": {
-        "home": "الرئيسية",
-        "categories": "الفئات",
-        "destinations": "الوجهات"
-        
-    },
-    "PlanTrip": {
-        "planTrip": "خطط لرحلتك"
-    },
-    "Carousel": {
+  "Logo": {
+    "logo": "عمان روت"
+  },
+  "NavbarLinks": {
+    "home": "الرئيسية",
+    "categories": "الفئات",
+    "destinations": "الوجهات"
+  },
+  "Carousel": {
     "button": "استكشف الوجهة",
     "slides": {
       "beach": {
-        "title":"اكتشف شواطئ عُمان",
+        "title": "اكتشف شواطئ عُمان",
         "description": "اكتشف الشواطئ الجميلة على ساحل عُمان الرائع."
       },
       "desert": {
-        "title":"اكتشف صحارى عُمان",
+        "title": "اكتشف صحارى عُمان",
         "description": "استمتع بصمت الصحراء العربية الذهبية."
       }
-    }  
+    }
   },
   "AboutOmanRoute": {
     "title": "اكتشف عُمان.",
@@ -31,30 +26,29 @@
     "description": "استكشف الجبال والشواطئ والصحارى والوجهات الثقافية في جميع أنحاء عُمان مع مخطط سفر ثنائي اللغة ذكي."
   },
   "Statistics": {
-   "items": {
-    "destinations": { "count": "50+", "label": "الوجهات" },
-    "routes": { "count": "100+", "label": "الطرق" },  
-    "rating": { "count": "10+", "label": "التقييم" }
-   }
-
+    "items": {
+      "destinations": { "count": "50+", "label": "الوجهات" },
+      "routes": { "count": "100+", "label": "الطرق" },
+      "rating": { "count": "10+", "label": "التقييم" }
+    }
   },
-  "Category":{
-    "title":"استكشف حسب الفئة",
-    "description":"تقدم عُمان مناظر طبيعية متنوعة وتراث ثقافي غني ينتظر اكتشافه.",
-    "items":{
+  "Category": {
+    "title": "استكشف حسب الفئة",
+    "description": "تقدم عُمان مناظر طبيعية متنوعة وتراث ثقافي غني ينتظر اكتشافه.",
+    "items": {
       "mountain": "جبل",
       "desert": "صحراء",
       "beach": "شاطئ",
       "culture": "ثقافة"
     }
   },
-  "Footer":{
-    "title":"عمان روت",
-    "description":"استكشف عُمان مناظر طبيعية متنوعة وتراث ثقافي غني ينتظر اكتشافه.",
-    "titleLinks":"روابط سريعة",
-    "titleNewsletter":"النشرة الإخبارية",
-    "newsletterPlaceholder":"أدخل بريدك الإلكتروني",
-    "newsletterButton":"اشترك",
+  "Footer": {
+    "title": "عمان روت",
+    "description": "استكشف عُمان مناظر طبيعية متنوعة وتراث ثقافي غني ينتظر اكتشافه.",
+    "titleLinks": "روابط سريعة",
+    "titleNewsletter": "النشرة الإخبارية",
+    "newsletterPlaceholder": "أدخل بريدك الإلكتروني",
+    "newsletterButton": "اشترك",
     "copyright": "جميع الحقوق محفوظة."
   },
   "CTA": {
@@ -67,52 +61,95 @@
   "FeaturedDestinations": {
     "title": "الوجهات المميزة",
     "description": "اكتشف أجمل الوجهات في عُمان، من الشواطئ الخلابة إلى الجبال الشامخة والثقافة النابضة بالحياة."
-},
-"DestinationsCard": {
-  "featured": "★ مميز",
-  "explore": "استكشف الوجهة",
-  "free": "مجاني",
-  "visit": "س زيارة",
-  "omr": "ريال عماني"
-},
-"DestinationCategory": {
-  "mountain": "جبل",
-  "desert": "صحراء",
-  "beach": "شاطئ",
-  "culture": "ثقافة",
-  "nature": "طبيعة",
-  "food": "طعام"
-},
-"DestinationsPage": {
-  "title": "استكشف جميع الوجهات",
-  "description": "اكتشف أجمل الوجهات في جميع أنحاء عُمان"
-},
-"Pagination": {
-  "previous": "السابق",
-  "next": "التالي"
-},
-"Filters": {
-  "allCategories": "كل الفئات",
-  "allRegions": "كل المناطق",
-  "allSeasons": "كل المواسم",
-  "reset": "إعادة تعيين",
-  "sortBy": "ترتيب حسب",
-  "default": "افتراضي",
-  "leastCrowded": "الأقل ازدحاماً",
-  "mostPopular": "الأكثر شعبية",
-  "lowestCost": "الأقل تكلفة",
-  "highestCost": "الأعلى تكلفة",
-  "january": "يناير",
-  "february": "فبراير",
-  "march": "مارس",
-  "april": "أبريل",
-  "may": "مايو",
-  "june": "يونيو",
-  "july": "يوليو",
-  "august": "أغسطس",
-  "september": "سبتمبر",
-  "october": "أكتوبر",
-  "november": "نوفمبر",
-  "december": "ديسمبر"
-}
+  },
+  "DestinationsCard": {
+    "featured": "★ مميز",
+    "explore": "استكشف الوجهة",
+    "free": "مجاني",
+    "visit": "س زيارة",
+    "omr": "ريال عماني"
+  },
+  "DestinationCategory": {
+    "mountain": "جبل",
+    "desert": "صحراء",
+    "beach": "شاطئ",
+    "culture": "ثقافة",
+    "nature": "طبيعة",
+    "food": "طعام"
+  },
+  "DestinationsPage": {
+    "title": "استكشف جميع الوجهات",
+    "description": "اكتشف أجمل الوجهات في جميع أنحاء عُمان"
+  },
+  "Pagination": {
+    "previous": "السابق",
+    "next": "التالي"
+  },
+  "Filters": {
+    "allCategories": "كل الفئات",
+    "allRegions": "كل المناطق",
+    "allSeasons": "كل المواسم",
+    "reset": "إعادة تعيين",
+    "sortBy": "ترتيب حسب",
+    "default": "افتراضي",
+    "leastCrowded": "الأقل ازدحاماً",
+    "mostPopular": "الأكثر شعبية",
+    "lowestCost": "الأقل تكلفة",
+    "highestCost": "الأعلى تكلفة",
+    "january": "يناير",
+    "february": "فبراير",
+    "march": "مارس",
+    "april": "أبريل",
+    "may": "مايو",
+    "june": "يونيو",
+    "july": "يوليو",
+    "august": "أغسطس",
+    "september": "سبتمبر",
+    "october": "أكتوبر",
+    "november": "نوفمبر",
+    "december": "ديسمبر"
+  },
+  "PlanTrip": {
+    "planTrip": "خطط لرحلتك",
+    "title": "خطط لرحلتك",
+    "description": "أخبرنا عن رحلتك وسنبني لك خطة مثالية",
+    "savedNotice": "تم تحميل اهتماماتك المحفوظة:",
+    "noSavedNotice": "لم تقم بحفظ أي وجهات بعد. يمكنك اختيار الفئات يدوياً أدناه.",
+    "duration": "مدة الرحلة",
+    "budget": "الميزانية",
+    "budgetLow": "اقتصادي",
+    "budgetMedium": "متوسط",
+    "budgetLuxury": "فاخر",
+    "month": "شهر السفر",
+    "intensity": "وتيرة السفر",
+    "intensityRelaxed": "هادئ",
+    "intensityBalanced": "متوازن",
+    "intensityPacked": "مكثف",
+    "categories": "الفئات المفضلة",
+    "generate": "إنشاء خطة الرحلة",
+    "reset": "إعادة تعيين",
+    "planReady": "خطة رحلتك جاهزة!",
+    "totalDistance": "إجمالي المسافة:",
+    "totalCost": "التكلفة الإجمالية:"
+  },
+  "TripPlan": {
+    "regionAllocation": "توزيع المناطق",
+    "day": "يوم",
+    "days": "أيام",
+    "dayTitle": "اليوم",
+    "costBreakdown": "تفاصيل التكلفة",
+    "fuel": "الوقود",
+    "tickets": "تذاكر الدخول",
+    "food": "الطعام",
+    "hotel": "الفندق",
+    "total": "الإجمالي",
+    "totalDistance": "إجمالي المسافة",
+    "free": "مجاني",
+    "omr": "ريال",
+    "reasonInterest": "يتوافق مع اهتماماتك",
+    "reasonSeason": "مناسب لهذا الشهر",
+    "reasonCrowd": "ازدحام منخفض",
+    "reasonCost": "مناسب للميزانية",
+    "planReady": "خطة رحلتك جاهزة!"
+  }
 }
