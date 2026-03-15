@@ -2,6 +2,7 @@
 import { useTranslations, useLocale } from "next-intl"
 import { TripPlan } from "@/lib/planner/types"
 import { destinations } from "@/data"
+import TripMap from "./TripMap"
 import {
   MapPin,
   Clock,
@@ -56,6 +57,7 @@ export default function TripPlanDisplay({ plan }: Props) {
   return (
     <div className="mt-8 flex flex-col gap-6">
 
+      {/* Plan Ready Banner */}
       <div className="p-4 rounded-2xl flex items-center gap-3 bg-[#2A9D8F18] border border-[#2A9D8F40]">
         <PartyPopper className="w-5 h-5 text-(--color-secondary)" />
         <p className="text-base font-bold text-(--color-secondary)">
@@ -63,6 +65,12 @@ export default function TripPlanDisplay({ plan }: Props) {
         </p>
       </div>
 
+      {/* Map */}
+      <div className="p-6 rounded-3xl bg-(--bg-primary) border border-gray-100 shadow-sm">
+        <TripMap days={plan.days} />
+      </div>
+
+      {/* Region Allocation */}
       <div className="p-6 rounded-3xl bg-(--bg-primary) border border-gray-100 shadow-sm">
         <h2 className="text-lg font-bold text-(--color-heading) mb-4 flex items-center gap-2">
           <MapPin className="w-5 h-5 text-(--color-secondary)" />
@@ -86,6 +94,7 @@ export default function TripPlanDisplay({ plan }: Props) {
         </div>
       </div>
 
+      {/* Day by Day */}
       {plan.days.map(day => (
         <div
           key={day.day}
@@ -102,11 +111,11 @@ export default function TripPlanDisplay({ plan }: Props) {
             <div className="flex items-center gap-3 text-xs text-(--color-text)">
               <span className="flex items-center gap-1">
                 <Car className="w-3 h-3 text-(--color-secondary)" />
-                {day.totalKm} km
+                {day.totalKm} {t("km")}
               </span>
               <span className="flex items-center gap-1">
                 <Clock className="w-3 h-3 text-(--color-secondary)" />
-                {day.totalHours}h
+                {day.totalHours}{t("hours")}
               </span>
             </div>
           </div>
@@ -142,7 +151,7 @@ export default function TripPlanDisplay({ plan }: Props) {
                       {stop.distanceFromPrev > 0 && (
                         <p className="text-xs text-(--color-text) flex items-center gap-1 justify-end">
                           <Car className="w-3 h-3 text-(--color-secondary)" />
-                          +{stop.distanceFromPrev} km
+                          +{stop.distanceFromPrev} {t("km")}
                         </p>
                       )}
                     </div>
@@ -177,6 +186,7 @@ export default function TripPlanDisplay({ plan }: Props) {
         </div>
       ))}
 
+      {/* Cost Breakdown */}
       <div className="p-6 rounded-3xl bg-(--bg-primary) border border-gray-100 shadow-sm">
         <h2 className="text-lg font-bold text-(--color-heading) mb-4 flex items-center gap-2">
           <Ticket className="w-5 h-5 text-(--color-secondary)" />
@@ -234,13 +244,14 @@ export default function TripPlanDisplay({ plan }: Props) {
         </div>
       </div>
 
+      {/* Total Distance */}
       <div className="p-4 rounded-2xl flex items-center justify-between bg-[#2A9D8F18] border border-[#2A9D8F40]">
         <span className="flex items-center gap-2 text-sm font-semibold text-(--color-secondary)">
           <Car className="w-4 h-4" />
           {t("totalDistance")}
         </span>
         <span className="text-sm font-bold text-(--color-secondary)">
-          {plan.totalKm} km
+          {plan.totalKm} {t("km")}
         </span>
       </div>
 

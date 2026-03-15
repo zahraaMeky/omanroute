@@ -132,24 +132,28 @@
     "totalDistance": "إجمالي المسافة:",
     "totalCost": "التكلفة الإجمالية:"
   },
-  "TripPlan": {
-    "regionAllocation": "توزيع المناطق",
-    "day": "يوم",
-    "days": "أيام",
-    "dayTitle": "اليوم",
-    "costBreakdown": "تفاصيل التكلفة",
-    "fuel": "الوقود",
-    "tickets": "تذاكر الدخول",
-    "food": "الطعام",
-    "hotel": "الفندق",
-    "total": "الإجمالي",
-    "totalDistance": "إجمالي المسافة",
-    "free": "مجاني",
-    "omr": "ريال",
-    "reasonInterest": "يتوافق مع اهتماماتك",
-    "reasonSeason": "مناسب لهذا الشهر",
-    "reasonCrowd": "ازدحام منخفض",
-    "reasonCost": "مناسب للميزانية",
-    "planReady": "خطة رحلتك جاهزة!"
-  }
+ "TripPlan": {
+  "regionAllocation": "توزيع المناطق",
+  "day": "يوم",
+  "days": "أيام",
+  "dayTitle": "اليوم",
+  "dayLabel": "اليوم",
+  "mapTitle": "خريطة المسار",
+  "costBreakdown": "تفاصيل التكلفة",
+  "fuel": "الوقود",
+  "tickets": "تذاكر الدخول",
+  "food": "الطعام",
+  "hotel": "الفندق",
+  "total": "الإجمالي",
+  "totalDistance": "إجمالي المسافة",
+  "free": "مجاني",
+  "omr": "ريال",
+  "reasonInterest": "يتوافق مع اهتماماتك",
+  "reasonSeason": "مناسب لهذا الشهر",
+  "reasonCrowd": "ازدحام منخفض",
+  "reasonCost": "مناسب للميزانية",
+  "planReady": "خطة رحلتك جاهزة!",
+  "km": "كم",
+  "hours": "س"
+}
 }

@@ -132,24 +132,28 @@
     "totalDistance": "Total Distance:",
     "totalCost": "Total Cost:"
   },
-  "TripPlan": {
-    "regionAllocation": "Region Allocation",
-    "day": "day",
-    "days": "days",
-    "dayTitle": "Day",
-    "costBreakdown": "Cost Breakdown",
-    "fuel": "Fuel",
-    "tickets": "Tickets",
-    "food": "Food",
-    "hotel": "Hotel",
-    "total": "Total",
-    "totalDistance": "Total Distance",
-    "free": "Free",
-    "omr": "OMR",
-    "reasonInterest": "Matches your interests",
-    "reasonSeason": "Great for this month",
-    "reasonCrowd": "Less crowded",
-    "reasonCost": "Budget friendly",
-    "planReady": "Your Trip Plan is Ready!"
-  }
+"TripPlan": {
+  "regionAllocation": "Region Allocation",
+  "day": "day",
+  "days": "days",
+  "dayTitle": "Day",
+  "dayLabel": "Day",
+  "mapTitle": "Route Map",
+  "costBreakdown": "Cost Breakdown",
+  "fuel": "Fuel",
+  "tickets": "Tickets",
+  "food": "Food",
+  "hotel": "Hotel",
+  "total": "Total",
+  "totalDistance": "Total Distance",
+  "free": "Free",
+  "omr": "OMR",
+  "reasonInterest": "Matches your interests",
+  "reasonSeason": "Great for this month",
+  "reasonCrowd": "Less crowded",
+  "reasonCost": "Budget friendly",
+  "planReady": "Your Trip Plan is Ready!",
+  "km": "km",
+  "hours": "h"
+}
 }
