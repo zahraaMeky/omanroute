@@ -1,6 +1,6 @@
 "use client"
 import { useState, useMemo, useEffect } from "react"
-import { useSearchParams } from "next/navigation"
+import { useSearchParams, useRouter, usePathname } from "next/navigation"
 import { destinations, Category } from "@/data"
 
 type Destination = (typeof destinations)[0]
@@ -21,22 +21,39 @@ const DEFAULT_FILTERS: Filters = {
 
 export function useFilters(data: Destination[]) {
   const searchParams = useSearchParams()
+  const router = useRouter()
+  const pathname = usePathname()
 
   const [filters, setFilters] = useState<Filters>({
     ...DEFAULT_FILTERS,
     category: searchParams.get("category") ?? "all",
+    region: searchParams.get("region") ?? "all",
+    month: searchParams.get("month") ?? "all",
+    sortBy: searchParams.get("sortBy") ?? "none",
   })
 
   useEffect(() => {
-    const category = searchParams.get("category") ?? "all"
-    setFilters(prev => ({ ...prev, category }))
+    setFilters({
+      category: searchParams.get("category") ?? "all",
+      region: searchParams.get("region") ?? "all",
+      month: searchParams.get("month") ?? "all",
+      sortBy: searchParams.get("sortBy") ?? "none",
+    })
   }, [searchParams])
 
   const setFilter = (key: keyof Filters, value: string) => {
-    setFilters(prev => ({ ...prev, [key]: value }))
+    const params = new URLSearchParams(searchParams.toString())
+    if (value === "all" || value === "none") {
+      params.delete(key)
+    } else {
+      params.set(key, value)
+    }
+    router.push(`${pathname}?${params.toString()}`)
   }
 
-  const resetFilters = () => setFilters(DEFAULT_FILTERS)
+  const resetFilters = () => {
+    router.push(pathname)
+  }
 
   const filtered = useMemo(() => {
     let result = data.filter(dest => {
