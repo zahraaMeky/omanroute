@@ -21,6 +21,9 @@ const notoKufiArabic = Noto_Kufi_Arabic({
 export const metadata: Metadata = {
   title: "OmanRoute",
   description: "Discover the best of Oman with OmanRoute - your ultimate travel companion for exploring the rich culture, stunning landscapes, and hidden gems of this beautiful country. Plan your perfect trip with us today!",
+   icons: {
+    icon: "/omanroutelogo.png",
+  },
 };
 interface LocaleLayoutProps {
   children: React.ReactNode;
