@@ -87,6 +87,7 @@
     "next": "Next"
   },
   "DestinationDetails": {
+  "about": "About",
   "visitDuration": "Visit Duration",
   "ticketCost": "Ticket Cost",
   "crowdLevel": "Crowd Level",
@@ -100,7 +101,14 @@
   "crowdQuiet": "Quiet",
   "crowdModerate": "Moderate",
   "crowdBusy": "Busy",
-  "crowdVeryBusy": "Very Busy"
+  "crowdVeryBusy": "Very Busy",
+  "descriptionIntro": "is a",
+  "descriptionLocated": "destination located in",
+  "descriptionRecommended": "Best visited in",
+  "descriptionDuration": "Average visit duration is",
+  "descriptionHours": "hours",
+  "descriptionFree": "Entrance is free",
+  "descriptionCost": "Entrance fee is"
 },
   "Filters": {
     "allCategories": "All Categories",

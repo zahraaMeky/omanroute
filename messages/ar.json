@@ -86,6 +86,7 @@
     "next": "التالي"
   },
   "DestinationDetails": {
+  "about": "عن الوجهة",
   "visitDuration": "مدة الزيارة",
   "ticketCost": "التكلفة",
   "crowdLevel": "مستوى الازدحام",
@@ -99,7 +100,14 @@
   "crowdQuiet": "هادئ",
   "crowdModerate": "متوسط",
   "crowdBusy": "مزدحم",
-  "crowdVeryBusy": "مزدحم جداً"
+  "crowdVeryBusy": "مزدحم جداً",
+  "descriptionIntro": "هي وجهة",
+  "descriptionLocated": "تقع في",
+  "descriptionRecommended": "يُنصح بزيارتها في",
+  "descriptionDuration": "متوسط مدة الزيارة",
+  "descriptionHours": "ساعات",
+  "descriptionFree": "الدخول مجاني",
+  "descriptionCost": "رسوم الدخول"
 },
   "Filters": {
     "allCategories": "كل الفئات",

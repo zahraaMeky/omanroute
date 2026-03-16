@@ -15,7 +15,6 @@ export default function DestinationDetails({ id }: Props) {
   const isAr = locale === "ar"
   const t = useTranslations("DestinationDetails")
   const tc = useTranslations("DestinationCategory")
-  const tFilters = useTranslations("Filters")
   const { isSaved, toggleDestination } = useSavedDestinations()
 
   const dest = destinations.find(d => d.id === id)
@@ -36,6 +35,19 @@ export default function DestinationDetails({ id }: Props) {
     if (dest.crowd_level <= 2) return "bg-(--color-secondary)"
     if (dest.crowd_level <= 3) return "bg-(--color-primary)"
     return "bg-red-400"
+  }
+
+  const generatedDescription = () => {
+    const cats = dest.categories.map(c => tc.has(c) ? tc(c) : c).join(", ")
+    const months = dest.recommended_months
+      .map(m => new Date(0, m - 1).toLocaleString(isAr ? "ar" : "en", { month: "long" }))
+      .join(", ")
+    const hours = dest.avg_visit_duration_minutes / 60
+    const ticket = dest.ticket_cost_omr === 0
+      ? t("descriptionFree")
+      : `${t("descriptionCost")} ${dest.ticket_cost_omr} ${t("omr")}`
+
+    return `${name} ${t("descriptionIntro")} ${cats} ${t("descriptionLocated")} ${region}. ${t("descriptionRecommended")} ${months}. ${t("descriptionDuration")} ${hours} ${t("descriptionHours")}. ${ticket}.`
   }
 
   return (
@@ -123,6 +135,16 @@ export default function DestinationDetails({ id }: Props) {
                   {region}
                 </p>
               </div>
+            </div>
+
+            {/* Generated Description */}
+            <div className="p-4 rounded-2xl bg-white shadow-sm border border-gray-100">
+              <p className="text-sm font-semibold mb-3 text-(--color-heading)">
+                {t("about")}
+              </p>
+              <p className="text-sm text-(--color-text) leading-relaxed">
+                {generatedDescription()}
+              </p>
             </div>
 
             <div className="p-4 rounded-2xl bg-white shadow-sm border border-gray-100">
