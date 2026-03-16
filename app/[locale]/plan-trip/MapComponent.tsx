@@ -5,7 +5,7 @@ import { DayPlan } from "@/lib/planner/types"
 import L from "leaflet"
 import "leaflet/dist/leaflet.css"
 
-delete (L.Icon.Default.prototype as any)._getIconUrl
+delete ((L.Icon.Default.prototype as unknown) as { _getIconUrl?: unknown })._getIconUrl
 L.Icon.Default.mergeOptions({
   iconRetinaUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png",
   iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
@@ -55,8 +55,7 @@ export default function MapComponent({ day, color, activeStopId }: Props) {
 
       const isActive = activeStopId === stop.destination.id
       const markerSize = isActive ? 36 : 28
-      const markerColor = isActive ? "#fff" : color
-      const markerBg = isActive ? color : color
+      const markerBg = color
       const border = isActive ? `3px solid #1C1C1E` : `2px solid white`
       const shadow = isActive
         ? `0 0 0 4px ${color}40, 0 4px 12px rgba(0,0,0,0.4)`

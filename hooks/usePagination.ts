@@ -5,6 +5,7 @@ export function usePagination<T>(data: T[], itemsPerPage: number) {
   const [currentPage, setCurrentPage] = useState(1)
 
   // reset to page 1 when data changes
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => {
     setCurrentPage(1)
   }, [data])

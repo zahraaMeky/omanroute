@@ -24,22 +24,12 @@ export function useFilters(data: Destination[]) {
   const router = useRouter()
   const pathname = usePathname()
 
-  const [filters, setFilters] = useState<Filters>({
-    ...DEFAULT_FILTERS,
+  const filters = useMemo<Filters>(() => ({
     category: searchParams.get("category") ?? "all",
     region: searchParams.get("region") ?? "all",
     month: searchParams.get("month") ?? "all",
     sortBy: searchParams.get("sortBy") ?? "none",
-  })
-
-  useEffect(() => {
-    setFilters({
-      category: searchParams.get("category") ?? "all",
-      region: searchParams.get("region") ?? "all",
-      month: searchParams.get("month") ?? "all",
-      sortBy: searchParams.get("sortBy") ?? "none",
-    })
-  }, [searchParams])
+  }), [searchParams])
 
   const setFilter = (key: keyof Filters, value: string) => {
     const params = new URLSearchParams(searchParams.toString())
