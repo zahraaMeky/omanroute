@@ -53,7 +53,8 @@
 
 @layer utilities {
   .wrapper {
-    @apply max-w-7xl px-4 sm:px-6 lg:px-8 mx-auto w-full;
+    /* @apply max-w-7xl px-4 sm:px-6 lg:px-8 mx-auto w-full; */
+     @apply max-w-7xl px-5 mx-auto w-full;
   }
 }
 

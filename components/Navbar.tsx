@@ -7,7 +7,7 @@ import { Globe, MapPin, Menu, X } from "lucide-react";
 
 const navLinks: { key: string; href: string }[] = [
   { key: "home", href: "/" },
-  { key: "categories", href: "/categories" },
+  { key: "categories", href: "/#categories" },
   { key: "destinations", href: "/destinations" },
 ];
 

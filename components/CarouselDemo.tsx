@@ -8,7 +8,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
-import Link from "next/link"
+import { Link } from "@/i18n/navigation"
 import { Compass } from "lucide-react"
 
 export function CarouselDemo() {

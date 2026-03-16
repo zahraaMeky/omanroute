@@ -6,7 +6,7 @@ import CategoryCard from "./CategoryCard";
 const Category = () => {
   const t = useTranslations();
   return (
-    <div className="wrapper py-10 sm:py-12 md:py-16">
+    <div id="categories" className="wrapper py-10 sm:py-12 md:py-16">
       <div className="flex flex-col items-center gap-6 sm:gap-8 md:gap-10">
         {/* Text content */}
         <div className="text-center max-w-2xl mx-auto mb-2 sm:mb-6 flex flex-col items-center gap-3 sm:gap-4 px-2 sm:px-0">
