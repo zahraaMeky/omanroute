@@ -1,4 +1,5 @@
 "use client"
+import { useState } from "react"
 import { useTranslations, useLocale } from "next-intl"
 import { TripPlan } from "@/lib/planner/types"
 import { destinations } from "@/data"
@@ -23,6 +24,8 @@ export default function TripPlanDisplay({ plan }: Props) {
   const tc = useTranslations("DestinationCategory")
   const locale = useLocale()
   const isAr = locale === "ar"
+  const [activeStopId, setActiveStopId] = useState<string | null>(null)
+  const [activeDay, setActiveDay] = useState(0)
 
   const getRegionName = (regionEn: string) => {
     const dest = destinations.find(d => d.region.en === regionEn)
@@ -57,7 +60,6 @@ export default function TripPlanDisplay({ plan }: Props) {
   return (
     <div className="mt-8 flex flex-col gap-6">
 
-      {/* Plan Ready Banner */}
       <div className="p-4 rounded-2xl flex items-center gap-3 bg-[#2A9D8F18] border border-[#2A9D8F40]">
         <PartyPopper className="w-5 h-5 text-(--color-secondary)" />
         <p className="text-base font-bold text-(--color-secondary)">
@@ -65,12 +67,15 @@ export default function TripPlanDisplay({ plan }: Props) {
         </p>
       </div>
 
-      {/* Map */}
       <div className="p-6 rounded-3xl bg-(--bg-primary) border border-gray-100 shadow-sm">
-        <TripMap days={plan.days} />
+        <TripMap
+          days={plan.days}
+          activeStopId={activeStopId}
+          activeDay={activeDay}
+          onDayChange={setActiveDay}
+        />
       </div>
 
-      {/* Region Allocation */}
       <div className="p-6 rounded-3xl bg-(--bg-primary) border border-gray-100 shadow-sm">
         <h2 className="text-lg font-bold text-(--color-heading) mb-4 flex items-center gap-2">
           <MapPin className="w-5 h-5 text-(--color-secondary)" />
@@ -94,8 +99,7 @@ export default function TripPlanDisplay({ plan }: Props) {
         </div>
       </div>
 
-      {/* Day by Day */}
-      {plan.days.map(day => (
+      {plan.days.map((day, dayIndex) => (
         <div
           key={day.day}
           className="p-6 rounded-3xl bg-(--bg-primary) border border-gray-100 shadow-sm"
@@ -120,20 +124,36 @@ export default function TripPlanDisplay({ plan }: Props) {
             </div>
           </div>
 
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-2">
             {day.stops.map((stop, i) => (
-              <div key={stop.destination.id} className="flex flex-col sm:flex-row gap-4">
+              <div
+                key={stop.destination.id}
+                onClick={() => {
+                  setActiveStopId(stop.destination.id)
+                  setActiveDay(dayIndex)
+                }}
+                className={`flex gap-4 cursor-pointer rounded-xl p-2 transition-all duration-200
+                  ${activeStopId === stop.destination.id
+                    ? "bg-[#FFC85720] border border-[#FFC85740]"
+                    : "hover:bg-gray-50"
+                  }`}
+              >
                 <div className="flex flex-col items-center">
-                  <div className="w-3 h-3 rounded-full mt-1 shrink-0 bg-(--color-primary)" />
+                  <div className={`w-3 h-3 rounded-full mt-1 shrink-0 transition-all duration-200
+                    ${activeStopId === stop.destination.id
+                      ? "bg-(--color-primary) scale-125"
+                      : "bg-(--color-primary)"
+                    }`}
+                  />
                   {i < day.stops.length - 1 && (
                     <div className="w-0.5 flex-1 mt-1 bg-gray-200" />
                   )}
                 </div>
 
                 <div className="flex-1 pb-4">
-                  <div className="flex flex-col sm:flex-row items-start justify-between gap-2">
-                    <div className="min-w-0">
-                      <p className="font-semibold text-(--color-heading) text-sm truncate">
+                  <div className="flex items-start justify-between gap-2">
+                    <div>
+                      <p className="font-semibold text-(--color-heading) text-sm">
                         {isAr ? stop.destination.name.ar : stop.destination.name.en}
                       </p>
                       <p className="text-xs text-(--color-text) mt-0.5 flex items-center gap-1">
@@ -186,7 +206,6 @@ export default function TripPlanDisplay({ plan }: Props) {
         </div>
       ))}
 
-      {/* Cost Breakdown */}
       <div className="p-6 rounded-3xl bg-(--bg-primary) border border-gray-100 shadow-sm">
         <h2 className="text-lg font-bold text-(--color-heading) mb-4 flex items-center gap-2">
           <Ticket className="w-5 h-5 text-(--color-secondary)" />
@@ -244,7 +263,6 @@ export default function TripPlanDisplay({ plan }: Props) {
         </div>
       </div>
 
-      {/* Total Distance */}
       <div className="p-4 rounded-2xl flex items-center justify-between bg-[#2A9D8F18] border border-[#2A9D8F40]">
         <span className="flex items-center gap-2 text-sm font-semibold text-(--color-secondary)">
           <Car className="w-4 h-4" />

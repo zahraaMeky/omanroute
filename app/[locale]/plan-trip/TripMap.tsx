@@ -17,12 +17,23 @@ const DAY_COLORS = [
 
 interface Props {
   days: DayPlan[]
+  activeStopId: string | null
+  activeDay: number
+  onDayChange: (day: number) => void
 }
 
-const MapComponent = dynamic(() => import("./MapComponent"), { ssr: false })
+interface MapComponentProps {
+  day: DayPlan
+  color: string
+  activeStopId: string | null
+}
 
-export default function TripMap({ days }: Props) {
-  const [activeDay, setActiveDay] = useState(0)
+const MapComponent = dynamic<MapComponentProps>(
+  () => import("./MapComponent"),
+  { ssr: false }
+)
+
+export default function TripMap({ days, activeStopId, activeDay, onDayChange }: Props) {
   const t = useTranslations("TripPlan")
 
   return (
@@ -37,7 +48,7 @@ export default function TripMap({ days }: Props) {
         {days.map((day, i) => (
           <button
             key={day.day}
-            onClick={() => setActiveDay(i)}
+            onClick={() => onDayChange(i)}
             className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200 border-2
               ${activeDay === i
                 ? "border-transparent text-white"
@@ -53,10 +64,11 @@ export default function TripMap({ days }: Props) {
         ))}
       </div>
 
-      <div className="w-full h-72 sm:h-80 md:h-96 rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
+      <div className="w-full h-96 rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
         <MapComponent
           day={days[activeDay]}
           color={DAY_COLORS[activeDay % DAY_COLORS.length]}
+          activeStopId={activeStopId}
         />
       </div>
 

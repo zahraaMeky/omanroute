@@ -13,7 +13,9 @@ interface Props {
 export default function DestinationDetails({ id }: Props) {
   const locale = useLocale()
   const isAr = locale === "ar"
+  const t = useTranslations("DestinationDetails")
   const tc = useTranslations("DestinationCategory")
+  const tFilters = useTranslations("Filters")
   const { isSaved, toggleDestination } = useSavedDestinations()
 
   const dest = destinations.find(d => d.id === id)
@@ -21,6 +23,20 @@ export default function DestinationDetails({ id }: Props) {
 
   const name = isAr ? dest.name.ar : dest.name.en
   const region = isAr ? dest.region.ar : dest.region.en
+
+  const crowdLabel = () => {
+    if (dest.crowd_level <= 1) return t("crowdVeryQuiet")
+    if (dest.crowd_level <= 2) return t("crowdQuiet")
+    if (dest.crowd_level <= 3) return t("crowdModerate")
+    if (dest.crowd_level <= 4) return t("crowdBusy")
+    return t("crowdVeryBusy")
+  }
+
+  const crowdColor = () => {
+    if (dest.crowd_level <= 2) return "bg-(--color-secondary)"
+    if (dest.crowd_level <= 3) return "bg-(--color-primary)"
+    return "bg-red-400"
+  }
 
   return (
     <div className="wrapper">
@@ -39,18 +55,14 @@ export default function DestinationDetails({ id }: Props) {
           <h1 className="text-4xl font-bold text-white">{name}</h1>
         </div>
 
-        {/* Save button */}
         <button
           onClick={() => toggleDestination(dest.id)}
-          className="absolute top-6 right-6 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110"
-          style={{
-            background: isSaved(dest.id) ? "#FFC857" : "rgba(0,0,0,0.4)",
-          }}
+          className={`absolute top-6 right-6 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110
+            ${isSaved(dest.id) ? "bg-(--color-primary)" : "bg-black/40"}`}
         >
           <Bookmark
-            className="w-5 h-5"
-            style={{ color: isSaved(dest.id) ? "#1C1C1E" : "white" }}
-            fill={isSaved(dest.id) ? "#1C1C1E" : "none"}
+            className={`w-5 h-5 ${isSaved(dest.id) ? "text-(--color-heading)" : "text-white"}`}
+            fill={isSaved(dest.id) ? "currentColor" : "none"}
           />
         </button>
       </div>
@@ -64,7 +76,7 @@ export default function DestinationDetails({ id }: Props) {
               <div className="p-4 rounded-2xl bg-white shadow-sm border border-gray-100 flex flex-col gap-1">
                 <Clock className="w-5 h-5 text-(--color-secondary)" />
                 <p className="text-xs text-(--color-text)">
-                  {isAr ? "مدة الزيارة" : "Visit Duration"}
+                  {t("visitDuration")}
                 </p>
                 <p className="font-bold text-(--color-heading)">
                   {dest.avg_visit_duration_minutes / 60}h
@@ -74,29 +86,38 @@ export default function DestinationDetails({ id }: Props) {
               <div className="p-4 rounded-2xl bg-white shadow-sm border border-gray-100 flex flex-col gap-1">
                 <Banknote className="w-5 h-5 text-(--color-secondary)" />
                 <p className="text-xs text-(--color-text)">
-                  {isAr ? "التكلفة" : "Ticket Cost"}
+                  {t("ticketCost")}
                 </p>
                 <p className="font-bold text-(--color-heading)">
                   {dest.ticket_cost_omr === 0
-                    ? isAr ? "مجاني" : "Free"
-                    : `${dest.ticket_cost_omr} ${isAr ? "ريال" : "OMR"}`}
+                    ? t("free")
+                    : `${dest.ticket_cost_omr} ${t("omr")}`}
                 </p>
               </div>
 
-              <div className="p-4 rounded-2xl bg-white shadow-sm border border-gray-100 flex flex-col gap-1">
+              <div className="p-4 rounded-2xl bg-white shadow-sm border border-gray-100 flex flex-col gap-2">
                 <Users className="w-5 h-5 text-(--color-secondary)" />
                 <p className="text-xs text-(--color-text)">
-                  {isAr ? "مستوى الازدحام" : "Crowd Level"}
+                  {t("crowdLevel")}
                 </p>
-                <p className="font-bold text-(--color-heading)">
-                  {dest.crowd_level} / 5
+                <div className="flex gap-1">
+                  {[1, 2, 3, 4, 5].map(level => (
+                    <div
+                      key={level}
+                      className={`h-2 flex-1 rounded-full transition-all duration-200
+                        ${level <= dest.crowd_level ? crowdColor() : "bg-gray-100"}`}
+                    />
+                  ))}
+                </div>
+                <p className="text-xs font-medium text-(--color-text)">
+                  {crowdLabel()}
                 </p>
               </div>
 
               <div className="p-4 rounded-2xl bg-white shadow-sm border border-gray-100 flex flex-col gap-1">
                 <MapPin className="w-5 h-5 text-(--color-secondary)" />
                 <p className="text-xs text-(--color-text)">
-                  {isAr ? "المنطقة" : "Region"}
+                  {t("region")}
                 </p>
                 <p className="font-bold text-(--color-heading)">
                   {region}
@@ -106,7 +127,7 @@ export default function DestinationDetails({ id }: Props) {
 
             <div className="p-4 rounded-2xl bg-white shadow-sm border border-gray-100">
               <p className="text-sm font-semibold mb-3 text-(--color-heading)">
-                {isAr ? "الفئات" : "Categories"}
+                {t("categories")}
               </p>
               <div className="flex flex-wrap gap-2">
                 {dest.categories.map(cat => (
@@ -122,15 +143,17 @@ export default function DestinationDetails({ id }: Props) {
 
             <div className="p-4 rounded-2xl bg-white shadow-sm border border-gray-100">
               <p className="text-sm font-semibold mb-3 text-(--color-heading)">
-                {isAr ? "أفضل أوقات الزيارة" : "Best Months to Visit"}
+                {t("bestMonths")}
               </p>
               <div className="flex flex-wrap gap-2">
                 {dest.recommended_months.map(month => (
                   <span
                     key={month}
-                    className="text-xs px-3 py-1 rounded-full font-medium bg-[#FFC85720] text-[#1C1C1E] border border-[#FFC857]"
+                    className="text-xs px-3 py-1 rounded-full font-medium bg-[#FFC85720] text-(--color-heading) border border-[#FFC857]"
                   >
-                    {new Date(0, month - 1).toLocaleString(isAr ? "ar" : "en", { month: "long" })}
+                    {new Date(0, month - 1).toLocaleString(
+                      isAr ? "ar" : "en", { month: "long" }
+                    )}
                   </span>
                 ))}
               </div>
@@ -139,7 +162,7 @@ export default function DestinationDetails({ id }: Props) {
 
           <div className="p-4 rounded-2xl bg-white shadow-sm border border-gray-100 flex flex-col gap-3">
             <p className="text-sm font-semibold text-(--color-heading)">
-              {isAr ? "الموقع" : "Location"}
+              {t("location")}
             </p>
             <div className="w-full h-48 rounded-xl overflow-hidden">
               <iframe

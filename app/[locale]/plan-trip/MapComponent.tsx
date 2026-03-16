@@ -15,9 +15,10 @@ L.Icon.Default.mergeOptions({
 interface Props {
   day: DayPlan
   color: string
+  activeStopId: string | null
 }
 
-export default function MapComponent({ day, color }: Props) {
+export default function MapComponent({ day, color, activeStopId }: Props) {
   const mapRef = useRef<HTMLDivElement>(null)
   const mapInstanceRef = useRef<L.Map | null>(null)
   const locale = useLocale()
@@ -52,26 +53,36 @@ export default function MapComponent({ day, color }: Props) {
         ? t("free")
         : `${stop.destination.ticket_cost_omr} ${t("omr")}`
 
+      const isActive = activeStopId === stop.destination.id
+      const markerSize = isActive ? 36 : 28
+      const markerColor = isActive ? "#fff" : color
+      const markerBg = isActive ? color : color
+      const border = isActive ? `3px solid #1C1C1E` : `2px solid white`
+      const shadow = isActive
+        ? `0 0 0 4px ${color}40, 0 4px 12px rgba(0,0,0,0.4)`
+        : `0 2px 6px rgba(0,0,0,0.3)`
+
       const markerIcon = L.divIcon({
         className: "",
         html: `
           <div style="
-            background:${color};
+            background:${markerBg};
             color:#1C1C1E;
-            width:28px;
-            height:28px;
+            width:${markerSize}px;
+            height:${markerSize}px;
             border-radius:50%;
             display:flex;
             align-items:center;
             justify-content:center;
             font-weight:bold;
-            font-size:12px;
-            border:2px solid white;
-            box-shadow:0 2px 6px rgba(0,0,0,0.3);
+            font-size:${isActive ? 14 : 12}px;
+            border:${border};
+            box-shadow:${shadow};
+            transition:all 0.2s;
           ">${i + 1}</div>
         `,
-        iconSize: [28, 28],
-        iconAnchor: [14, 14],
+        iconSize: [markerSize, markerSize],
+        iconAnchor: [markerSize / 2, markerSize / 2],
       })
 
       L.marker([stop.destination.lat, stop.destination.lng], { icon: markerIcon })
@@ -99,7 +110,7 @@ export default function MapComponent({ day, color }: Props) {
       map.remove()
       mapInstanceRef.current = null
     }
-  }, [day, color, isAr])
+  }, [day, color, isAr, activeStopId])
 
   return <div ref={mapRef} className="w-full h-full" />
 }
