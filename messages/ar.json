@@ -85,6 +85,22 @@
     "previous": "السابق",
     "next": "التالي"
   },
+  "DestinationDetails": {
+  "visitDuration": "مدة الزيارة",
+  "ticketCost": "التكلفة",
+  "crowdLevel": "مستوى الازدحام",
+  "region": "المنطقة",
+  "categories": "الفئات",
+  "bestMonths": "أفضل أوقات الزيارة",
+  "location": "الموقع",
+  "free": "مجاني",
+  "omr": "ريال",
+  "crowdVeryQuiet": "هادئ جداً",
+  "crowdQuiet": "هادئ",
+  "crowdModerate": "متوسط",
+  "crowdBusy": "مزدحم",
+  "crowdVeryBusy": "مزدحم جداً"
+},
   "Filters": {
     "allCategories": "كل الفئات",
     "allRegions": "كل المناطق",

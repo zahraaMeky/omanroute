@@ -77,6 +77,7 @@
     "nature": "Nature",
     "food": "Food"
   },
+  
   "DestinationsPage": {
     "title": "Explore All Destinations",
     "description": "Discover the most breathtaking destinations across Oman"
@@ -85,6 +86,22 @@
     "previous": "Previous",
     "next": "Next"
   },
+  "DestinationDetails": {
+  "visitDuration": "Visit Duration",
+  "ticketCost": "Ticket Cost",
+  "crowdLevel": "Crowd Level",
+  "region": "Region",
+  "categories": "Categories",
+  "bestMonths": "Best Months to Visit",
+  "location": "Location",
+  "free": "Free",
+  "omr": "OMR",
+  "crowdVeryQuiet": "Very Quiet",
+  "crowdQuiet": "Quiet",
+  "crowdModerate": "Moderate",
+  "crowdBusy": "Busy",
+  "crowdVeryBusy": "Very Busy"
+},
   "Filters": {
     "allCategories": "All Categories",
     "allRegions": "All Regions",

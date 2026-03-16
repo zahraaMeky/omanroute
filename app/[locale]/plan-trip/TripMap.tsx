@@ -53,7 +53,7 @@ export default function TripMap({ days }: Props) {
         ))}
       </div>
 
-      <div className="w-full h-96 rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
+      <div className="w-full h-72 sm:h-80 md:h-96 rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
         <MapComponent
           day={days[activeDay]}
           color={DAY_COLORS[activeDay % DAY_COLORS.length]}

@@ -75,7 +75,7 @@ export function FilterBar({
         value={filters.category}
         onValueChange={val => onFilterChange("category", val)}
       >
-        <SelectTrigger className="w-40 rounded-xl">
+        <SelectTrigger className="w-full sm:w-40 rounded-xl">
           <SelectValue placeholder={t("allCategories")} />
         </SelectTrigger>
         <SelectContent>
@@ -92,7 +92,7 @@ export function FilterBar({
         value={filters.region}
         onValueChange={val => onFilterChange("region", val)}
       >
-        <SelectTrigger className="w-40 rounded-xl">
+        <SelectTrigger className="w-full sm:w-40 rounded-xl">
           <SelectValue placeholder={t("allRegions")} />
         </SelectTrigger>
         <SelectContent>
@@ -109,7 +109,7 @@ export function FilterBar({
         value={filters.month}
         onValueChange={val => onFilterChange("month", val)}
       >
-        <SelectTrigger className="w-40 rounded-xl">
+        <SelectTrigger className="w-full sm:w-40 rounded-xl">
           <SelectValue placeholder={t("allSeasons")} />
         </SelectTrigger>
         <SelectContent>
@@ -125,7 +125,7 @@ export function FilterBar({
         value={filters.sortBy}
         onValueChange={val => onFilterChange("sortBy", val)}
       >
-        <SelectTrigger className="w-44 rounded-xl">
+        <SelectTrigger className="w-full sm:w-44 rounded-xl">
           <SelectValue placeholder={t("sortBy")} />
         </SelectTrigger>
         <SelectContent>

@@ -122,7 +122,7 @@ export default function TripPlanDisplay({ plan }: Props) {
 
           <div className="flex flex-col gap-4">
             {day.stops.map((stop, i) => (
-              <div key={stop.destination.id} className="flex gap-4">
+              <div key={stop.destination.id} className="flex flex-col sm:flex-row gap-4">
                 <div className="flex flex-col items-center">
                   <div className="w-3 h-3 rounded-full mt-1 shrink-0 bg-(--color-primary)" />
                   {i < day.stops.length - 1 && (
@@ -131,9 +131,9 @@ export default function TripPlanDisplay({ plan }: Props) {
                 </div>
 
                 <div className="flex-1 pb-4">
-                  <div className="flex items-start justify-between gap-2">
-                    <div>
-                      <p className="font-semibold text-(--color-heading) text-sm">
+                  <div className="flex flex-col sm:flex-row items-start justify-between gap-2">
+                    <div className="min-w-0">
+                      <p className="font-semibold text-(--color-heading) text-sm truncate">
                         {isAr ? stop.destination.name.ar : stop.destination.name.en}
                       </p>
                       <p className="text-xs text-(--color-text) mt-0.5 flex items-center gap-1">
