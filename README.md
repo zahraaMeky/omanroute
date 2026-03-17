@@ -18,6 +18,7 @@
 - Budget-aware trip planning 💰  
 - Route optimization with **2-opt heuristic** 🚗  
 - Category & season-aware recommendations 🌴🏜️🏖️  
+- Category, season, region, and crowd-level filters for destinations 🌴🏜️🏖️  
 - Carousel and category previews 🎠📌  
 
 ---
