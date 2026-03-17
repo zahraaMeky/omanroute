@@ -1,4 +1,9 @@
-![OmanRoute Banner](https://omanroute.netlify.app/banner.png)
+![OmanRoute Banner]<img width="1024" height="1536" alt="20260317_0349_Image Generation_remix_01kkwqpz4we7db2d1d1e8qy23c (2)" src="https://github.com/user-attachments/assets/87a1cfb0-b30d-41be-a40b-950a14ee1dc9" />
+
+  <img src="https://img.shields.io/badge/-Next_JS-black?style=for-the-badge&logoColor=white&logo=nextdotjs&color=000000" alt="nextdotjs" />
+  <img src="https://img.shields.io/badge/-Tailwind_CSS-black?style=for-the-badge&logoColor=white&logo=tailwindcss&color=06B6D4" alt="tailwindcss" />
+  <img src="https://img.shields.io/badge/-TypeScript-black?style=for-the-badge&logoColor=white&logo=typescript&color=3178C6" alt="typescript" />
+
 
 # 🇴🇲 OmanRoute – Intelligent Travel Planner
 
