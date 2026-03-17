@@ -11,7 +11,7 @@
 
 <br/>
 
-# 🇴🇲 OmanRoute – Intelligent Travel Planner
+# OmanRoute – Intelligent Travel Planner
 
 🌐 **Live Demo:** https://omanroute.netlify.app/en
 
