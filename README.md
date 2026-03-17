@@ -339,20 +339,11 @@ Trip cost is estimated using:
 
 ---
 
-# 📌 Future Improvements
-
-- Real travel time using map APIs
-- Hotel and flight integration
-- Dynamic weather and seasonal scoring
-- Multi‑city and international trip support
-
----
-
 # 👩‍💻 Author
 
-**Zahraa Mekky**
+**AL Zahraa Mekky**
 
-Frontend Developer passionate about building intelligent and interactive web applications.
+Full Stack Developer passionate about building intelligent and interactive web applications.
 
 GitHub:
 https://github.com/zahraaMeky
