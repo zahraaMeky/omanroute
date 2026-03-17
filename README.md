@@ -145,7 +145,7 @@ Manages:
 
 State is persisted using **LocalStorage**, allowing:
 
-- saved destinations to remain across sessions
+- saved destinations to remain
 - trip plans to persist after page refresh
 
 Storage keys:
