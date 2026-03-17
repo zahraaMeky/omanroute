@@ -1,4 +1,5 @@
-<img width="1800" height="520" alt="OmanRoute Banner" src="https://github.com/user-attachments/assets/87a1cfb0-b30d-41be-a40b-950a14ee1dc9" />
+<img width="1024" height="981" alt="20260317_0405_Image Generation_remix_01kkwrj1hyehwsdwxnv6xy3tac (1)" src="https://github.com/user-attachments/assets/d8644539-bee1-468b-985c-98d6ebd830a8" />
+
 <br/>
 <p align="center">
   <img src="https://img.shields.io/badge/-Next_JS-black?style=for-the-badge&logoColor=white&logo=nextdotjs&color=000000" alt="nextdotjs" />
