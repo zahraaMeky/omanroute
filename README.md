@@ -7,7 +7,7 @@
   <img src="https://img.shields.io/badge/-TypeScript-black?style=for-the-badge&logoColor=white&logo=typescript&color=3178C6" alt="typescript" />
 </p>
 
-# 🇴🇲 OmanRoute – Intelligent Travel Planner
+# OmanRoute – Intelligent Travel Planner
 
 🌐 **Live Demo:** [https://omanroute.netlify.app/en](https://omanroute.netlify.app/en)
 
