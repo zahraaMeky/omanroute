@@ -1,36 +1,222 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+![OmanRoute Banner](https://omanroute.netlify.app/banner.png)
 
-## Getting Started
+# 🇴🇲 OmanRoute – Intelligent Travel Planner
 
-First, run the development server:
+🌐 **Live Demo:** [https://omanroute.netlify.app/en](https://omanroute.netlify.app/en)
+
+**OmanRoute** is a **Next.js 16** travel-planner demo that helps users explore Oman and generate optimized day-by-day itineraries. It supports **multi-locale experiences** (English & Arabic) and runs entirely in the browser, using **SSR** for marketing pages and **CSR** for itinerary generation.
+
+---
+
+## ✨ Features
+
+- Multi-locale support 🌍 (English & Arabic)  
+- Server-Side Rendered (SSR) landing & destination pages ⚡  
+- Client-Side Rendered (CSR) Intelligent Itinerary Planner 📅  
+- Interactive Leaflet 🗺 maps with day-by-day route visualization  
+- Persistent favorites and trip storage 💾  
+- Budget-aware trip planning 💰  
+- Route optimization with **2-opt heuristic** 🚗  
+- Category & season-aware recommendations 🌴🏜️🏖️  
+- Carousel and category previews 🎠📌  
+
+---
+
+## 🛠 Technologies Used
+
+- **Next.js 16 (App Router)** – hybrid SSR/CSR  
+- **Tailwind CSS** – responsive & mobile-first  
+- **shadcn/ui** – UI components  
+- **next-intl** – localization & i18n  
+- **React Hooks** – state & effects  
+- **Zustand** – state management with persistence  
+- **lucide-react** – icons  
+- **Leaflet 🗺** – interactive maps  
+- **TypeScript** – strict type safety  
+
+---
+
+## 🗂 Project Structure
+
+```plaintext
+omanroute/
+├─ app/
+│  ├─ [locale]/                     
+│  │  ├─ plan-trip/                  
+│  │  │  ├─ PlanTripContent.tsx      # User input form
+│  │  │  ├─ TripPlanDisplay.tsx      # Shows generated trip
+│  │  │  ├─ MapComponent.tsx         # Leaflet map component
+│  │  │  └─ TripMap.tsx              # Leaflet map wrapper
+│  │  ├─ destinations/               
+│  │  │  └─ [id]/                    # Destination details page
+│  │  └─ layout.tsx                  # Localized layout
+│  └─ layout.tsx                     # Root layout
+├─ components/                        # Reusable UI components
+├─ data/
+│  ├─ destinations.ts                 # Destination dataset
+│  ├─ carousel.ts                     # Carousel images
+│  ├─ category.ts                     # Category images & icons
+│  ├─ statistics.ts                   # Icons for statistics
+│  │  └─ index.ts                      # Exports all data
+├─ lib/
+│  ├─ planner/                        # Trip planning logic
+│  │  ├─ index.ts
+│  │  ├─ regionAllocator.ts
+│  │  ├─ scheduler.ts
+│  │  ├─ scorer.ts
+│  │  ├─ optimizer.ts
+│  │  ├─ distance.ts
+│  │  └─ costEstimator.ts
+│  ├─ store/                           # Zustand stores
+│  │  ├─ usePlannerStore.ts
+│  │  └─ useSavedDestinations.ts
+│  └─ hooks/                           # Custom hooks
+│     ├─ useFilters.ts
+│     └─ usePagination.ts
+├─ locales/                            
+│  └─ messages/
+│     ├─ en.json
+│     └─ ar.json
+├─ public/                              # Static assets
+└─ package.json
+```
+
+---
+
+## ⚙️ Project Setup & Run Instructions
+
+**Clone the repository:**
+
+```bash
+git clone <repo-url>
+cd omanroute
+```
+
+**Install dependencies:**
+
+```bash
+npm install
+# or pnpm install
+# or yarn install
+```
+
+**Start the development server:**
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit the app at: `http://localhost:3000`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**Build for production:**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm run start
+```
 
-## Learn More
+**Linting:**
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run lint
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🌐 Rendering Strategy (SSR vs CSR)
 
-## Deploy on Vercel
+- **Marketing pages & destination browsing:** Server-Side Rendered (SSR) for SEO and fast first load.  
+- **Trip Planner (PlanTripContent & TripPlanDisplay):** Client-Side Rendered (CSR) for interactive itinerary generation and map display.  
+- **State persistence:** via Zustand + localStorage, ensuring data is retained across refresh and navigation.  
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🧠 Itinerary Generation Algorithm
+
+### 1️⃣ Hierarchical Planning
+
+```plaintext
+User Inputs → Region Allocation → Daily Stop Selection → Route Optimization → Cost Estimation → Trip Plan Output
+```
+
+**Steps:**
+
+1. **Region Allocation**  
+   - Score each region  
+   - Max days per region  
+   - Minimum 2 regions if days ≥ 3  
+
+2. **Daily Stop Selection**  
+   - Score destinations  
+   - Max stops per intensity  
+   - Max daily hours & km  
+   - Avoid consecutive long stops (>90 min)  
+
+3. **Route Optimization**  
+   - 2-opt heuristic to minimize daily travel distance  
+
+4. **Cost Estimation**  
+   - Fuel, hotel, food, tickets  
+   - Budget threshold check  
+
+5. **Trip Plan Output**  
+   - Region allocation  
+   - Day-by-day itinerary  
+   - Map visualization  
+   - Cost breakdown  
+
+---
+
+### 2️⃣ Multi-Objective Scoring Model
+
+**Destination Score:**
+
+```plaintext
+score(i) =
+  w_interest  * Jaccard(categories_user, categories_i)
++ w_season    * SeasonFit(month, recommended_months_i)
+- w_crowd     * Normalize(crowd_level_i)
+- w_cost      * Normalize(ticket_cost_omr_i)
+- w_detour    * DetourPenalty(i, current_route)
++ w_diversity * DiversityGain(i, selected_set)
+```
+
+- **Normalization:** all factors mapped to [0,1]  
+- **Deterministic:** identical inputs → identical scores  
+
+**Weights:**
+
+| Factor     | Weight | Type      |
+|------------|--------|----------|
+| Interest   | 0.30   | Rewarded |
+| Season     | 0.25   | Rewarded |
+| Crowd      | 0.20   | Penalized|
+| Cost       | 0.15   | Penalized|
+| Detour     | 0.05   | Penalized|
+| Diversity  | 0.05   | Rewarded |
+
+- **Interest:** Jaccard similarity between user categories & destination  
+- **Season:** 1 if month is recommended, else 0  
+- **Crowd:** normalized 1–5, less crowded preferred  
+- **Cost:** normalized 0–max ticket cost  
+- **Detour:** normalized distance from previous stop  
+- **Diversity:** +1 if adds new category  
+
+---
+
+## ⚡ Performance Considerations & Optimizations
+
+- 2-opt route optimization reduces daily travel distance  
+- Region allocation & scoring are precomputed arrays  
+- Client-side computation triggered only on user action (Generate button)  
+- Suitable for ≤~100 destinations; scalable with pagination  
+
+---
+
+## ⚠️ Known Limitations & Tradeoffs
+
+- Greedy selection for initial stop choice; 2-opt only optimizes routes  
+- Travel times assume fixed 60 km/h speed; terrain variations not modeled  
+- Season fit is binary (no near-season weighting)  
+- Stops selected sequentially within region blocks, not across regions  
+
