@@ -1,4 +1,4 @@
-# 🇴🇲 OmanRoute
+# OmanRoute
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/259282ba-1fa9-477c-8670-c5246dc4f96b" width="100%" alt="OmanRoute Banner"/>
