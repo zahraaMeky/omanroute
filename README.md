@@ -166,38 +166,63 @@ Persistence:
 
 ## 📂 Project Structure
 
-```
+
+```plaintext
 omanroute/
 ├─ app/
 │  ├─ [locale]/
 │  │  ├─ plan-trip/
-│  │  │  ├─ PlanTripContent.tsx
-│  │  │  ├─ TripPlanDisplay.tsx
-│  │  │  ├─ MapComponent.tsx
-│  │  │  └─ TripMap.tsx
+│  │  │  ├─ PlanTripContent.tsx      # User input form
+│  │  │  ├─ TripPlanDisplay.tsx      # Shows generated trip
+│  │  │  ├─ MapComponent.tsx         # Leaflet map component
+│  │  │  └─ TripMap.tsx              # Leaflet map wrapper
+│  │  │
 │  │  ├─ destinations/
-│  │  │  ├─ DestinationsContent.tsx
-│  │  │  └─ [id]/                     # Destination details
-│  │  └─ layout.tsx
-│  └─ layout.tsx
-├─ components/                        # Reusable UI components
+│  │  │  ├─ DestinationsContent.tsx  # Displays and manages all destinations
+│  │  │  └─ [id]/                    # Destination details page
+│  │  │
+│  │  └─ layout.tsx                  # Localized layout
+│  │
+│  └─ layout.tsx                     # Root layout
+│
+├─ components/                       # Reusable UI components
+│
 ├─ data/
-│  ├─ destinations.ts
-│  ├─ carousel.ts
-│  ├─ category.ts
-│  ├─ statistics.ts
-│  └─ index.ts
+│  ├─ destinations.ts                # Destination dataset
+│  ├─ carousel.ts                    # Carousel images
+│  ├─ category.ts                    # Category images & icons
+│  ├─ statistics.ts                  # Icons for statistics
+│  └─ index.ts                       # Exports all data
+│
 ├─ lib/
-│  ├─ planner/                        # Trip planning logic
-│  ├─ store/                           # Zustand stores
-│  └─ hooks/                           # Custom hooks
+│  ├─ planner/                       # Trip planning logic
+│  │  ├─ index.ts
+│  │  ├─ regionAllocator.ts
+│  │  ├─ scheduler.ts
+│  │  ├─ scorer.ts
+│  │  ├─ optimizer.ts
+│  │  ├─ distance.ts
+│  │  └─ costEstimator.ts
+│  │
+│  ├─ store/                         # Zustand stores
+│  │  ├─ usePlannerStore.ts
+│  │  └─ useSavedDestinations.ts
+│  │
+│  └─ hooks/                         # Custom hooks
+│     ├─ useFilters.ts
+│     └─ usePagination.ts
+│
 ├─ locales/
-│  └─ messages/                        # Translation files
-├─ public/                             # Static assets
+│  └─ messages/                      # Translation files
+│     ├─ en.json                     # English translations
+│     └─ ar.json                     # Arabic translations
+│
+├─ public/                           # Static assets
 └─ package.json
 ```
 
 ---
+
 
 ## ⚙️ Getting Started
 
