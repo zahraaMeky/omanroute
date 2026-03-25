@@ -27,7 +27,7 @@
 
 It allows users to:  
 - 🌍 Explore destinations across Oman  
-- 📅 Generate optimized multi-day travel plans  
+- 📅 Generate optimized multi-day itineraries  
 - 🧠 Plan trips using a deterministic, constraint-based algorithm  
 - 🗺 Visualize routes interactively on maps
 
