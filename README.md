@@ -1,349 +1,254 @@
-
-<img width="1024" height="855" alt="om" src="https://github.com/user-attachments/assets/259282ba-1fa9-477c-8670-c5246dc4f96b" />
-
-<br/><br/>
+# 🇴🇲 OmanRoute
 
 <p align="center">
-  <img src="https://img.shields.io/badge/-Next_JS-black?style=for-the-badge&logoColor=white&logo=nextdotjs&color=000000" alt="nextdotjs" />
-  <img src="https://img.shields.io/badge/-Tailwind_CSS-black?style=for-the-badge&logoColor=white&logo=tailwindcss&color=06B6D4" alt="tailwindcss" />
-  <img src="https://img.shields.io/badge/-TypeScript-black?style=for-the-badge&logoColor=white&logo=typescript&color=3178C6" alt="typescript" />
+  <img src="https://github.com/user-attachments/assets/259282ba-1fa9-477c-8670-c5246dc4f96b" width="100%" alt="OmanRoute Banner"/>
 </p>
 
-<br/>
+<p align="center">
+  <strong>Intelligent Travel Planner for Oman</strong><br/>
+  Discover destinations and generate optimized multi-day itineraries
+</p>
 
-# OmanRoute – Intelligent Travel Planner
+<p align="center">
+  <a href="https://omanroute.netlify.app/en"><strong>🌐 Live Demo</strong></a>
+</p>
 
-🌐 **Live Demo:** https://omanroute.netlify.app/en
-
-**OmanRoute** is a **Next.js 16** travel‑planner demo that helps users explore Oman and generate optimized day‑by‑day itineraries.  
-It supports **multi‑locale experiences (English & Arabic)** and combines **Server‑Side Rendering (SSR)** for SEO‑friendly pages with **Client‑Side Rendering (CSR)** for interactive trip planning.
-
----
-
-# ✨ Features
-
-- 🌍 Multi‑locale support (English & Arabic)
-- ⚡ Server‑Side Rendered (SSR) landing & destination pages
-- 📅 Client‑Side Rendered (CSR) intelligent itinerary planner
-- 🗺 Interactive Leaflet maps with day‑by‑day route visualization
-- 💾 Persistent favorites and trip storage
-- 💰 Budget‑aware trip planning
-- 🚗 Route optimization using **2‑opt heuristic**
-- 🌴 Filters for **category, season, region, and crowd level**
-- 🎠 Carousel and category previews
+<p align="center">
+  <img src="https://img.shields.io/badge/Next.js-16-black?style=for-the-badge&logo=nextdotjs" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" />
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" />
+</p>
 
 ---
 
-# 🛠 Technologies Used
+## 🚀 Overview
 
-- **Next.js 16 (App Router)** – hybrid SSR/CSR architecture
-- **Tailwind CSS** – responsive & mobile‑first styling
-- **shadcn/ui** – accessible UI components
-- **next-intl** – localization and internationalization
-- **React Hooks** – state and lifecycle management
-- **Zustand** – lightweight global state management
-- **lucide-react** – icon system
-- **Leaflet** – interactive maps
-- **TypeScript** – static type safety
+**OmanRoute** is a bilingual (Arabic 🇸🇦 / English 🇬🇧) smart tourism platform built with **Next.js 16**.  
 
----
+It allows users to:  
+- 🌍 Explore destinations across Oman  
+- 📅 Generate optimized multi-day travel plans  
+- 🧠 Plan trips using a deterministic, constraint-based algorithm  
+- 🗺 Visualize routes interactively on maps
 
-# 🏗 Architectural Overview
-
-## Hybrid SSR / CSR Architecture
-
-- **SSR (Server‑Side Rendering)** is used for:
-  - Landing pages
-  - Destination browsing
-  - SEO optimization
-  - Faster first page load
-
-- **CSR (Client‑Side Rendering)** is used for:
-  - Trip planner interactions
-  - Map visualization
-  - Real‑time itinerary generation
-
-This hybrid approach ensures **both performance and interactivity**.
+The app combines **Server-Side Rendering (SSR)** for SEO-friendly pages with **Client-Side Rendering (CSR)** for real-time itinerary generation.
 
 ---
 
-## Planner Engine
+## ✨ Key Features
 
-All itinerary generation logic lives in:
-
-```
-lib/planner/
-```
-
-This module handles:
-
-- Region allocation
-- Destination scoring
-- Daily scheduling
-- Route optimization
-- Cost estimation
-
-The planner is designed to be **deterministic**, meaning identical inputs always generate the same trip plan.
+- 🌐 Multi-language support (Arabic & English)  
+- ⚡ Hybrid SSR/CSR architecture  
+- 📍 Destination browsing with advanced filters  
+- 🧠 Intelligent itinerary generation  
+- 🗺 Interactive maps with route visualization  
+- 💰 Budget-aware trip planning  
+- 💾 Persistent saved destinations & plans  
+- 🚗 Route optimization using 2-opt algorithm  
+- 🎯 Deterministic results (same input → same output)  
 
 ---
 
-## Data Layer
+## 🏗 Architecture
 
-Static datasets power the application:
+### Hybrid Rendering Strategy
 
-```
-data/
-```
-
-Contains:
-
-- destination dataset
-- category assets
-- carousel images
-- statistics icons
-
-Localization files are stored in:
-
-```
-locales/messages/
-```
-
-Supporting **English and Arabic translations**.
+| Page                 | Strategy      | Purpose                        |
+|----------------------|--------------|--------------------------------|
+| Home                 | SSR          | SEO + fast load                |
+| Destinations         | SSR + CSR    | server render + client filters |
+| Destination Details  | SSR          | static-friendly                |
+| Plan Trip            | CSR          | client-side algorithm          |
 
 ---
 
-# 🧠 State Management
+## 🧠 Itinerary Planning Engine
 
-State management is implemented using **Zustand**.
+All planning logic lives in:  
+`lib/planner/`
 
-### Stores
-
-**usePlannerStore**
-
-Manages:
-
-- trip inputs
-- generated itinerary
-- planner state
-
-Available actions:
-
-- `setInputs`
-- `setPlan`
-- `reset`
-
-**useSavedDestinations**
-
-Manages:
-
-- favorite destinations
-- toggle actions
-
----
-
-### Persistence
-
-State is persisted using **LocalStorage**, allowing:
-
-- saved destinations to remain
-- trip plans to persist after page refresh
-
-Storage keys:
+The system is a **multi-stage constraint-based optimizer**:
 
 ```
-trip-planner
-saved-destinations
+User Input → Scoring Model → Region Allocation → Daily Scheduling → Route Optimization → Cost Estimation → Final Itinerary
 ```
 
 ---
 
-# 🗂 Project Structure
+### 🔢 Scoring Model
 
-```plaintext
+Each destination is evaluated using a weighted formula:
+
+```
+score(i) = 0.30 * InterestMatch
+         + 0.25 * SeasonFit
+         + 0.20 * CrowdPenalty
+         + 0.15 * CostPenalty
+         + 0.05 * DetourPenalty
+         + 0.05 * DiversityBonus
+```
+
+---
+
+### 🗺 Region Allocation
+
+- Regions ranked by average score  
+- Days distributed proportionally  
+- Ensures multi-region exploration for longer trips  
+
+---
+
+### 📅 Daily Scheduling
+
+| Constraint        | Value             |
+|------------------|-----------------|
+| Max daily hours   | 8               |
+| Max distance      | 250 km          |
+| Stops/day         | 3–5             |
+| Rest rule         | no consecutive long stops |
+
+---
+
+### 🚗 Route Optimization
+
+- Uses **2-opt heuristic**  
+- Iteratively swaps route segments to reduce total travel distance  
+- Stops when no improvement is found  
+
+---
+
+### 💰 Cost Estimation
+
+Includes:  
+- Fuel consumption  
+- Accommodation tiers  
+- Food budget  
+- Attraction ticket costs  
+
+---
+
+### 📏 Distance Calculation
+
+- Implements the **Haversine formula** (no external APIs)  
+
+Functions:
+
+```ts
+distanceKm(a, b)
+totalKm(route)
+detourKm(route, candidate)
+```
+
+---
+
+### 🗺 Map System
+
+- Leaflet + OpenStreetMap  
+- Route polylines per day  
+- Interactive markers  
+- Active stop highlighting  
+- Day-by-day navigation  
+
+---
+
+### 🌐 State Management
+
+Built with **Zustand**  
+
+Stores:  
+- `usePlannerStore` → trip inputs & generated plan  
+- `useSavedDestinations` → favorites  
+
+Persistence:  
+- `localStorage`: `trip-planner`, `saved-destinations`  
+
+---
+
+## 📂 Project Structure
+
+```
 omanroute/
 ├─ app/
 │  ├─ [locale]/
 │  │  ├─ plan-trip/
-│  │  │  ├─ PlanTripContent.tsx      # User input form
-│  │  │  ├─ TripPlanDisplay.tsx      # Shows generated trip
-│  │  │  ├─ MapComponent.tsx         # Leaflet map component
-│  │  │  └─ TripMap.tsx              # Leaflet map wrapper
-│  │  │
+│  │  │  ├─ PlanTripContent.tsx
+│  │  │  ├─ TripPlanDisplay.tsx
+│  │  │  ├─ MapComponent.tsx
+│  │  │  └─ TripMap.tsx
 │  │  ├─ destinations/
-│  │  │  ├─ DestinationsContent.tsx  # Displays and manages all destinations
-│  │  │  └─ [id]/                    # Destination details page
-│  │  │
-│  │  └─ layout.tsx                  # Localized layout
-│  │
-│  └─ layout.tsx                     # Root layout
-│
-├─ components/                       # Reusable UI components
-│
+│  │  │  ├─ DestinationsContent.tsx
+│  │  │  └─ [id]/                     # Destination details
+│  │  └─ layout.tsx
+│  └─ layout.tsx
+├─ components/                        # Reusable UI components
 ├─ data/
-│  ├─ destinations.ts                # Destination dataset
-│  ├─ carousel.ts                    # Carousel images
-│  ├─ category.ts                    # Category images & icons
-│  ├─ statistics.ts                  # Icons for statistics
-│  └─ index.ts                       # Exports all data
-│
+│  ├─ destinations.ts
+│  ├─ carousel.ts
+│  ├─ category.ts
+│  ├─ statistics.ts
+│  └─ index.ts
 ├─ lib/
-│  ├─ planner/                       # Trip planning logic
-│  │  ├─ index.ts
-│  │  ├─ regionAllocator.ts
-│  │  ├─ scheduler.ts
-│  │  ├─ scorer.ts
-│  │  ├─ optimizer.ts
-│  │  ├─ distance.ts
-│  │  └─ costEstimator.ts
-│  │
-│  ├─ store/                         # Zustand stores
-│  │  ├─ usePlannerStore.ts
-│  │  └─ useSavedDestinations.ts
-│  │
-│  └─ hooks/                         # Custom hooks
-│     ├─ useFilters.ts
-│     └─ usePagination.ts
-│
+│  ├─ planner/                        # Trip planning logic
+│  ├─ store/                           # Zustand stores
+│  └─ hooks/                           # Custom hooks
 ├─ locales/
-│  └─ messages/                      # Translation files
-│     ├─ en.json                     # English translations
-│     └─ ar.json                     # Arabic translations
-│
-├─ public/                           # Static assets
+│  └─ messages/                        # Translation files
+├─ public/                             # Static assets
 └─ package.json
 ```
 
 ---
 
-# ⚙️ Project Setup
-
-## Clone repository
+## ⚙️ Getting Started
 
 ```bash
 git clone https://github.com/zahraaMeky/omanroute
 cd omanroute
-```
-
-## Install dependencies
-
-```bash
 npm install
-```
-
-or
-
-```bash
-pnpm install
-```
-
----
-
-## Start development server
-
-```bash
 npm run dev
 ```
 
-Open:
-
-```
-http://localhost:3000
-```
+Open in browser: [http://localhost:3000](http://localhost:3000)
 
 ---
 
-## Build production
+## ⚡ Performance
 
-```bash
-npm run build
-npm run start
-```
-
----
-
-# 🧠 Itinerary Generation Algorithm
-
-The trip planner uses a **multi‑stage deterministic planning algorithm**.
-
-Pipeline:
-
-```
-User Inputs
-   ↓
-Region Allocation
-   ↓
-Daily Stop Selection
-   ↓
-Route Optimization
-   ↓
-Cost Estimation
-   ↓
-Trip Plan Output
-```
+- Planner runs only on user action  
+- Fully client-side computation  
+- Memoized filtering & sorting  
+- Dynamic imports for map (CSR only)  
+- Static dataset (no runtime API calls)  
 
 ---
 
-## Region Allocation
+## ⚠️ Limitations
 
-- Scores regions based on user interests
-- Distributes available days across regions
-- Ensures diversity when trip duration allows
-
----
-
-## Destination Scoring
-
-Destinations are evaluated using a **multi‑objective scoring model** considering:
-
-- category similarity
-- seasonal suitability
-- crowd level
-- ticket cost
-- detour distance
-- experience diversity
+- Uses straight-line (Haversine) distance  
+- Greedy initial selection  
+- Static fuel price assumptions  
+- No real-time traffic or road data  
 
 ---
 
-## Route Optimization
+## 🛠 Tech Stack
 
-A **2‑opt heuristic algorithm** minimizes total travel distance between stops by iteratively swapping route segments.
-
----
-
-## Cost Estimation
-
-Trip cost is estimated using:
-
-- fuel costs
-- accommodation estimates
-- food budget
-- attraction ticket prices
+| Technology      | Purpose                  |
+|-----------------|-------------------------|
+| Next.js 16      | Framework               |
+| TypeScript      | Type safety             |
+| Tailwind CSS    | Styling                 |
+| next-intl       | i18n                    |
+| Zustand         | State management        |
+| Leaflet         | Maps                    |
+| shadcn/ui       | UI components           |
+| Lucide          | Icons                   |
 
 ---
 
-# ⚡ Performance Considerations
+## 👩‍💻 Author
 
-- Planner runs **only when user clicks Generate**
-- Computation happens **client‑side**
-- Efficient for datasets up to **~100 destinations**
-- Route optimization reduces unnecessary travel
+**AL Zahraa Mekky** – Full Stack Developer  
 
----
+🔗 [GitHub](https://github.com/zahraaMeky)
 
-# ⚠️ Known Limitations
-
-- Initial stop selection uses a greedy strategy
-- Travel speed assumes constant **60 km/h**
-- Season scoring is binary
-- Stops are selected sequentially within regions
-
----
-
-# 👩‍💻 Author
-
-**AL Zahraa Mekky**
-
-Full Stack Developer passionate about building intelligent and interactive web applications.
-
-GitHub:
-https://github.com/zahraaMeky
