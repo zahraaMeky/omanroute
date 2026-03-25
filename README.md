@@ -23,7 +23,7 @@
 
 ## 🚀 Overview
 
-**OmanRoute** is a bilingual (Arabic 🇸🇦 / English 🇬🇧) smart tourism platform built with **Next.js 16**.  
+**OmanRoute** is a bilingual (Arabic / English) smart tourism platform built with **Next.js 16**.  
 
 It allows users to:  
 - 🌍 Explore destinations across Oman  
